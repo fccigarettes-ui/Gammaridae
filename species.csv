@@ -1,0 +1,57 @@
+﻿species id,Genus,Species,Author,Family,Order
+SP001,Apolochus,specebatei,"(Stebbing, 1876)",Amphilochidae,Amphipoda
+SP002,Cerapus,rivulus,sp. nov.,Ischyroceridae,Amphipoda
+SP003,Chelicorophium,madrasensis,"(Nayar, 1950)",Corophidae,Amphipoda
+SP004,Grandidierella,gilesi,"Chilton, 1921",Aoridae,Amphipoda
+SP005,Grandidierella,gravipes,"K.H. Barnard, 1935",Aoridae,Amphipoda
+SP006,Grandidierella,japonica,"Stephensen, 1938",Aoridae,Amphipoda
+SP007,Kamaka,appendiculata,"Ariyama, Angsupanich & Rodcharoen, 2010",Kamakidae,Amphipoda
+SP008,Kamaka,songkhlaensis,"Ariyama, Angsupanich & Rodcharoen, 2010",Kamakidae,Amphipoda
+SP009,Melita,setiflagella,"Yamato, 1988",Melitidae,Amphipoda
+SP010,Perioculodes,meridichinensis,"Hirayama, 1992",Oedicerotidae,Amphipoda
+SP011,Victoriopisa,chikensis,"(Chilton, 1921)",Eriopisidae,Amphipoda
+SP012,Quadrivisio,meufong,"Hughes & Kaji, 2016",Maeridae,Amphipoda
+SP013,Hourstonius,loguna,"(Mckinney, 1978)",Amphilochidae,Amphipoda
+SP014,Hourstonius,wakabarae,"Leite & Siqueira, 2013",Amphilochidae,Amphipoda
+SP015,Hourstonius,magdai,"(Reid, 1951)",Amphilochidae,Amphipoda
+SP016,Hourstonius,geojeansis,"Kim, Hendrycks & Lee, 2010",Amphilochidae,Amphipoda
+SP017,Hourstonius,vilordes,"(J.L. Barnard, 1962)",Amphilochidae,Amphipoda
+SP018,Hourstonius,pusilla,"(K.H. Barnard, 1916)",Amphilochidae,Amphipoda
+SP019,Hourstonius,cozekii,"Hirayama & Takeuchi, 1993",Amphilochidae,Amphipoda
+SP020,Hourstonius,karamani,"Alves et al., 2024",Amphilochidae,Amphipoda
+SP021,Hourstonius,longus,"Hirayama, 1983",Amphilochidae,Amphipoda
+SP022,Hourstonius,breviculus,"Hirayama, 1983",Amphilochidae,Amphipoda
+SP023,Hourstonius,robastodentes,"Hirayama, 1983",Amphilochidae,Amphipoda
+SP024,Hourstonius,pele,"J.L. Barnard, 1970",Amphilochidae,Amphipoda
+SP025,Hourstonius,japonica,"Hirayama, 1983",Amphilochidae,Amphipoda
+SP026,Hourstonius,templadoi,"Ortiz & Lalana, 1996",Amphilochidae,Amphipoda
+SP027,Hourstonius,tortugae,"Shoemaker, 1942",Amphilochidae,Amphipoda
+SP028,Hourstonius,petulans,"Karaman, 1980",Amphilochidae,Amphipoda
+SP029,Hourstonius,baciroa,"J.L. Barnard, 1979",Amphilochidae,Amphipoda
+SP030,Hourstonius,pusilloides,"Shoemaker, 1942",Amphilochidae,Amphipoda
+SP031,Amphilochus,neapolitanus,"Costa, 1853",Amphilochidae,Amphipoda
+SP032,Amphilochus,casahoya,"J.L. Barnard, 1962",Amphilochidae,Amphipoda
+SP033,Amphilochus,delacaya,"J.L. Barnard, 1962",Amphilochidae,Amphipoda
+SP034,Melita,tuberculata,,Melitidae,Amphipoda
+SP035,Melita,longidactyla,"Chevreux, 1907",Melitidae,Amphipoda
+SP036,Melita,bingoensis,"Yamato, 1987",Melitidae,Amphipoda
+SP037,Melita,nagatai,"Yamato, 1987",Melitidae,Amphipoda
+SP038,Melita,koreana,"Kim & Kim, 1991",Melitidae,Amphipoda
+SP039,Melita,choshigawaensis,"Tomikawa & Morino, 2003",Melitidae,Amphipoda
+SP040,Melita,shimizui,"Yamato, 1987",Melitidae,Amphipoda
+SP041,Melita,quadridentate,,Melitidae,Amphipoda
+SP042,Melita,pilopropoda,"Hatano, Ishimaru & Mawatari, 2000",Melitidae,Amphipoda
+SP043,Melita,hoshinoi,"Tomikawa & Morino, 2003",Melitidae,Amphipoda
+SP044,Melita,rylovae,"Bulycheva, 1955",Melitidae,Amphipoda
+SP045,Victoriopisa,tonggiesis,"Ren, 2012",Eriopisidae,Amphipoda
+SP046,Victoriopisa,ryukyuensis,"Stock & van der Heiden, 1967",Eriopisidae,Amphipoda
+SP047,Victoriopisa,autraliensis,"Chilton, 1923",Eriopisidae,Amphipoda
+SP048,Victoriopisa,epistomata,"Griffiths, 1974",Eriopisidae,Amphipoda
+SP049,Victoriopisa,marina,"(Ledoyer, 1984)",Eriopisidae,Amphipoda
+SP050,Victoriopisa,papiae,"Bruce & Phillips, 2020",Eriopisidae,Amphipoda
+SP051,Victoriopisa,atlantica,"Stock & van der Heiden, 1967",Eriopisidae,Amphipoda
+SP052,Hongkongvena,memoria,"Hirayama, 1992",Oedicerotidae,Amphipoda
+SP053,Perioculodes,meridichinensis,"Imbach, 1967",Oedicerotidae,Amphipoda
+SP054,Eochelidium,nonmiraculum,"Hirayama, 1992",Oedicerotidae,Amphipoda
+SP055,Chitonomandibulum,ampliforbicum,"Hirayama, 1992",Oedicerotidae,Amphipoda
+SP056,Eochelidium,nonrostrum,"Hirayama, 1992",Oedicerotidae,Amphipoda

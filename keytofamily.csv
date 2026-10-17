@@ -1,0 +1,921 @@
+﻿Key to Suborder of Amphipoda,,,,,,
+suborder numbers,suborder id,superfamily,family,trait id,trait value,observation note
+1,Caprellidea,,,T47,not exceeding 3 pairs,gills
+1,Caprellidea,,,T52,not exceeding 2 pairs,oostegites
+1,2,,,T47,exceeding 3 pairs,gills
+1,2,,,T52,usually exceeding 2 pairs,oostegites
+2,3,,,T10,palps absent,maxillipeds
+2,4,,,T10,palps present,maxillipeds
+3,Hyperiidea,,,T57,with only 2 segments,urosomes
+3,Gammaridea,,,T57,with 3 segments,urosomes
+4,Ingolfiellidea,,,T12h,movable ccompound form of articles 6 to 7 together,dactyl of gnathopods
+4,Ingolfiellidea,,,T56,vestigial or absent when present leaf-like,pleopods
+4,Gammaridea,,,T12h,formed of article 7 only,dactyl of gnathopods
+4,Gammaridea,,,T56,well developed rarely vestigial and only in terrestial species or 2 aquatic hypogean-anchialine genera of Bogidicllidae,pleopods
+,,,,,,
+Key to Marine families of Suborder Gammaridea,,,,,,
+suborder numbers,suborder id,superfamily,family,trait id,trait value,observation note
+A,SectionA,,,T43,fleshy,Telson
+A,SectionA,,,T43,thick and never cleft,Telson
+B,SectionB,,,T43,flat and flappable or undecided,Telson
+B,SectionB,,,T43,cleft or entire,Telson
+C,Lysianassidae,,Lysianassidae,T43,absent,Telson
+Key to Marine families of Suborder Gammaridea,,,,,,
+Section A,,,,,,
+suborder numbers,suborder id,superfamily,family,trait id,trait value,observation note
+1,2,,,T37,elongate at least 1.5 times as long as top of pleonite 3,urosome 1
+1,4,,,T37,not elongate,urosome 1
+2,Chelurite,,,T41,with hugely expanded peduncle,uropod 2
+2,3,,,T41,ordinary,uropod 2
+3,Podoceridae,,Podoceridae,T42,with 0 to 1 ramus,uropod 3
+3,Iciliidae,,Iciliidae,T42,with 2 rami,uropod 3
+4,5,,,T46,splayed outward radically,coxae
+4,5,,,T45,like flattened isopod extremely broad in relation to thickness,body
+4,7,,,T46,not splayed ,coxae
+4,7,,,T45,not like flattened isopod,body
+5,Temnophliidae,,Temnophliidae,T53,with pleurae,pereonites
+5,6,,,T53,lacking pleurae,pereonites
+6,Phliantidae,,Phliantidae,T02a,less than one fourth of body length,antenna 2
+6,Phliantidae,,Phliantidae,T01g,shorter than peduncle,antenna 2 flagellum
+6,Phliantidae,,Phliantidae,T42,feeble and evanescent,uropod 3
+6,Phliantidae,,Phliantidae,T51,reduced,mouthpart
+6,Phliantidae,,Phliantidae,T07,palp absent,mandibular
+6,Phliantidae,,Phliantidae,T08,reduced,maxilla 1
+6,Eusiridae,,Eusiridae,T02a,thirds of body length,antenna 2
+6,Eusiridae,,Eusiridae,T01g,elongate as long as peduncle,antenna 2 flagellum
+6,Eusiridae,,Eusiridae,T42,at least with 1 long ramus,uropod 3
+6,Eusiridae,,Eusiridae,T51,ordinary,mouthpart
+7,Stenothoidae,,Stenothoidae,T22,immense,coxa 2
+7,Stenothoidae,,Stenothoidae,T23,immense,coxa 3
+7,Stenothoidae,,Stenothoidae,T24,immense,coxa 4
+7,Stenothoidae,,Stenothoidae,T21,tiny hidden by coxa 2,coxa 1
+7,Stenothoidae,,Stenothoidae,T10,tiny outer plate and poorly spinose medially,maxilliped
+7,8,,,T21,either long and visible,coxa 1
+7,8,,,T10,well developed and well spinose medially,maxilliped
+8,9,,,T24,excavate posterodorsally,coxa 4
+8,10,,,T24,not excavate posterodorsally,coxa 4
+9,Talitroidea,Talitroidea,,T07,palp absent,mandibular
+9,Talitroidea,Talitroidea,,T42,inner ramus vestigial or absent,uropod 3
+9,Ischyroceridae,,Ischyroceridae,T07,palp present,mandibular
+9,Ischyroceridae,,Ischyroceridae,T42,inner ramus conspicuous,uropod 3
+10,Maxillipiidae,,Maxillipiidae,T19a,elongate and flagellate,pereopod 6
+10,11,,,T19a,not elongate and flagellate,pereopod 6
+11,Lafystiidae,,Lafystiidae,T10,palp of maxilliped with 2 articles,maxilliped
+11,12,,,T10,palp of maxilliped with 2 articles,maxilliped
+12,13,,,T12a,simple,gnathopod 1
+12,13,,,T13a,simple,gnathopod 2
+12,14,,,T12a,subchelate or carpo or propodochelate,gnathopod 1
+12,14,,,T13a,subchelate or carpo or propodochelate,gnathopod 2
+13,Laphystiopsidae,,Laphystiopsidae,T42,rami unequal,uropod 3
+13,Laphystiopsidae,,Laphystiopsidae,T42,longer than inner rami,uropod 3
+13,Laphystiopsidae,,Laphystiopsidae,T42,support by peduncle process,uropod 3
+13,Laphystiopsidae,,Laphystiopsidae,T02a,shorter than 1 third body length,antenna 2
+13,Laphystiopsidae,,Laphystiopsidae,T12f,slender but together less than 1.5 length of article 2,gnathopod 1 carpus
+13,Laphystiopsidae,,Laphystiopsidae,T12g,slender but together less than 1.5 length of article 2,gnathopod 1 propodus
+13,Iciliidae,,Iciliidae,T42,rami extending equally,uropod 3
+13,Iciliidae,,Iciliidae,T42,lacking peduncle supporting rami,uropod 3
+13,Iciliidae,,Iciliidae,T02a,longer than 1 more than two thirds body length,antenna 2
+13,Iciliidae,,Iciliidae,T12b,carpus and propodus immersely elongate 2.5 times length of article 2,gnathopod 1
+14,Cheluridae,,Cheluridae,T41,with large inner dorsal expansion,uropod 2
+14,15,,,T41,lacking large peduncular expansion,uropod 2
+15,Ampithoidae,,Ampithoidae,T11,outer lobes apically notched,lower lip
+15,Ampithoidae,,Ampithoidae,T42,inner ramus broad notched,uropod 3
+15,16,,,T11,outer lobes apically not notched,lower lip
+15,16,,,T42,inner ramus not broad pad like and nor apically broad nor widely setose or uniramous,uropod 3
+16,Ischyroceridae,,Ischyroceridae,T42,outer ramus hooked or bearing non articulate wires or hooks or denticles at lateral apex,uropod 3
+16,Corophiidae,,Corophiidae,T42,lacking hooks wires or denticles,uropod 3
+Section B,,,,,,
+suborder numbers,suborder id,superfamily,family,trait id,trait value,observation note
+1,Section C,,,T13d,elongate,gnathopod 2 ischium
+1,2,,,T13d,not elongate,gnathopod 2 ischium
+2,Phliantidae Kamakidae Cheluridae,,Phliantidae Kamakidae Cheluridae,T37,coalesced,urosomites 1
+2,Phliantidae Kamakidae Cheluridae,,Phliantidae Kamakidae Cheluridae,T38,coalesced,urosomites 2
+2,Phliantidae Kamakidae Cheluridae,,Phliantidae Kamakidae Cheluridae,T39,coalesced,urosomites 3
+2,Section D,,,T38,coalesced,urosomites 2
+2,Section D,,,T39,coalesced,urosomites 3
+2,Section D,,,T37,maybe coalesced,urosomites 1
+2,3,,,T37,separate,urosomites 1
+2,3,,,T38,separate,urosomites 2
+2,3,,,T39,separate,urosomites 3
+3,Section E,,,T21,small or absent much smaller than coxa 2 or mostly hidden,coxa 1
+3,4,,,T21,usually subequal to coxa 2 or never hidden but all following coxa,coxa 1
+4,Section F,,,T42,uniramous or lacking rami or absent,uropod 3
+4,5,,,T42,biramous one ramus often reduced,uropod 3
+5,Section G,,,T07,palp absent,mandibular
+5,6,,,T07,palp present,mandibular
+6,Section H,,,T07,molar absent of if present not triturative,mandibular
+6,Section H,,,T07,molar lacking numerous ridges and teeth,mandibular
+6,7,,,T07,molar well developed and triturative,mandibular
+6,7,,,T07,bearing ridge and teeth never extremely large or dominating mandible,mandibular
+7,8,,,T42,peduncle elongate as long as or longer than rami of uropod 1 and uropod 2 and moe than twice as long as telson also longer than peduncle of uropod 2,uropod 3
+7,8,,,T42,usually greatly exceeding apices of either uropod 1 or uropod 2 and rami usually elongate,uropod 3
+7,8,,,T42,subequal and nearly as long as rami,uropod 1
+7,8,,,T41,subequal and nearly as long as rami,uropod 2
+7,11,,,T42,peduncle not elongate or if peduncle elongate as above than uropod 3,uropod 3
+7,11,,,T40,not strongly exceeding apices of uropods 1,uropod 1
+7,11,,,T41,not strongly exceeding apices of uropods 1,uropod 2
+7,11,,,T42,greatly exceeding apices of uropod 1 than inner ramus short and scale like or peduncle not elongate and not more than 1.2 times as long as peduncle of uropod 2,uropod 3
+7,11,,,T42,rami shorter than peduncle of uropod 2 or rami much shorter than peduncle of uropod 3 not like that of first part of this couplet,uropod 3
+8,9,,,T22,longer than broad,coxa 2
+8,9,,,T23,longer than broad,coxa 3
+8,9,,,T55,dorsally smooth,pleonites
+8,9,,,T20a,at least 1.5 times as long as 5 or 6,pereopod 7
+8,9,,,T20g,very elongate head without lateral ocular bulges,pereopod 7 dactyl
+8,Melphidippidae,,Melphidippidae,T22,very short and broader than long,coxa 2
+8,Melphidippidae,,Melphidippidae,T23,very short and broader than long,coxa 3
+8,Melphidippidae,,Melphidippidae,T48,with strong hemispherical ocular bulges on sides,head
+8,Casco,,,T22,about as long as broad,coxa 2
+8,Casco,,,T23,about as long as broad,coxa 3
+8,Casco,,,T30,with 1 dorsal teeth,pleon 3
+8,Casco,,,T18a,long but subequal in length,pereopod 5
+8,Casco,,,T18g,short,pereopod 5 dactyl
+8,Casco,,,T48,without lateral ocular bulges,head
+8,Eusiridae,,Eusiridae,T22,slightly longer than broad,coxa 2
+8,Eusiridae,,Eusiridae,T23,slightly longer than broad,coxa 3
+8,Eusiridae,,Eusiridae,T30,dorsally smooth,pleon 3
+8,Eusiridae,,Eusiridae,T18a,similar slightly and consecutively more elongate,pereopod 5
+8,Eusiridae,,Eusiridae,T19a,similar slightly and consecutively more elongate,pereopod 6
+8,Eusiridae,,Eusiridae,T20a,similar slightly and consecutively more elongate and less than 25% longer than pereopod 6,pereopod 7
+8,Eusiridae,,Eusiridae,T20g,short,pereopod 7 dactyl
+8,Eusiridae,,Eusiridae,T48,without ocular bulges but often rostrate,head
+9,Megaluropidae,Calliopioidea,Megaluropidae,T42,peduncle not elongate,uropod 3
+9,10,,,T42,peduncle not elongate,uropod 3
+10,Oedicerotidae,,Oedicerotidae,T40,rami lacking subapical spines,uropod 1
+10,Oedicerotidae,,Oedicerotidae,T41,rami lacking subapical spines,uropod 2
+10,Exoedicerotidae,,Exoedicerotidae,T40,with apical or subapical spines,uropod 1
+10,Exoedicerotidae,,Exoedicerotidae,T41,with apical or subapical spines,uropod 2
+10,Oedicerotidae,,Oedicerotidae,T40,with apical spines,uropod 1
+10,Oedicerotidae,,Oedicerotidae,T41,with apical spines,uropod 2
+10,Oedicerotidae,,Oedicerotidae,T04,coalesced or contiguous,eyes
+11,Megaluropidae and Angisidae,,Megaluropidae and Angisidae,T22,progressively and strongly shortened,coxa 2
+11,Megaluropidae and Angisidae,,Megaluropidae and Angisidae,T23,progressively and strongly shortened,coxa 3
+11,12,,,T22,almost as long as or longer than coxa 1,coxa 2
+11,12,,,T23,almost as long as or longer than coxa 1,coxa 3
+12,Section 1,,,T43,entire or emarginata very short,telson
+12,Section 1,,,T24,not as poorly excavate posteriorly,coxa 4
+12,13,,,T43,entire or cleft short or long,telson
+13,14,,,T48,massive,head
+13,14,,,T05,danturned or shark nose projection,rostrum
+13,16,,,T48,not massive,head
+13,16,,,T05,if present on massive head no rostrum,rostrum
+14,Megaluropidae Exoedicerotidae Oedicerotidae return to 9,,Megaluropidae Exoedicerotidae Oedicerotidae return to 9,T20a,conpsicuosly longer than pereopod 5 and 6,pereopod 7
+14,Megaluropidae Exoedicerotidae Oedicerotidae return to 9,,Megaluropidae Exoedicerotidae Oedicerotidae return to 9,T19a,at least 1.5 times as long as pereopod 6,pereopod 6
+14,Megaluropidae Exoedicerotidae Oedicerotidae return to 9,,Megaluropidae Exoedicerotidae Oedicerotidae return to 9,T01f,absent or 1 articulate and short if present,accessory flagellum
+14,Megaluropidae Exoedicerotidae Oedicerotidae return to 9,,Megaluropidae Exoedicerotidae Oedicerotidae return to 9,T42,peduncle always elongate,uropod 3
+14,Megaluropidae Exoedicerotidae Oedicerotidae return to 9,,Megaluropidae Exoedicerotidae Oedicerotidae return to 9,T43,always half or less as long as at that peduncle and usually entire or emarginate,telson
+14,15,,,T20a,subequal to pereopod 6 in length though both often elongate,pereopod 7
+14,15,,,T01f,present and multiarticulate when 1-articulate will elongate,accessory flagellum
+14,15,,,T42,peduncle rarely elongate but telson always longer than and generally twice as long as peduncle of uropod 3,uropod 3
+14,Platyischnopidae,,Platyischnopidae,T20a,longer than pereopod 6,pereopod 7
+14,Platyischnopidae,,Platyischnopidae,T01f,present and multiarticulate,accessory flagellum
+14,Platyischnopidae,,Platyischnopidae,T42,peduncle not elongate,uropod 3
+14,Platyischnopidae,,Platyischnopidae,T43,not longer than peduncle of uropod 3,telson
+15,Platyischnopidae,,Platyischnopidae,T42,variramous,uropod 3
+15,Synopiidae,,Synopiidae,T42,magiriramous,uropod 3
+16,17,,,T18a,strongly spinose or setose and with elongate setae,pereopod 5
+16,17,,,T19a,strongly spinose or setose and with elongate setae,pereopod 6
+16,17,,,T20a,strongly spinose or setose and with elongate setae,pereopod 7
+16,32,,,T18a,poorly spinose or setose not fossonial,pereopod 5
+16,32,,,T19a,poorly spinose or setose not fossonial,pereopod 6
+16,32,,,T20a,poorly spinose or setose not fossonial,pereopod 7
+17,18,,,T20a,conspicuously elongate at least 1.5 times longer than pereopod 6,pereopod 7
+17,19,,,T20a,not conspicuously elongate subequal to shorter or slightly longer than pereopod 6,pereopod 7
+18,Platyischnopidae,,Platyischnopidae,T42,grossly variramous peduncle short,uropod 3
+18,Exoedicerotidae Oedicerotidae Megaluropidae,,Exoedicerotidae Oedicerotidae Megaluropidae,T42,aequiramous peduncle elongate or uropod 3 vestigial,uropod 3
+19,20,,,T43,elongate nearly twice as long as peduncle of uropod 3 or urosomite 3,telson
+19,22,,,T43,not elongate or scarely exceeding length of peduncle on uropod 3 or urosomite 3,telson
+20,Cardenioidae,,,T21,reduced less than half area of coxa 2,coxa 1
+20,21,,,T21,ordinary subequal to coxa 2,coxa 1
+21,Synopiidae,,Synopiidae,T48,galeate,head
+21,Synopiidae,,Synopiidae,T42,aequiramous,uropod 3
+21,Penteporeiidae,,Penteporeiidae,T48,ordinary,head
+21,Penteporeiidae,,Penteporeiidae,T42,pariramous,uropod 3
+22,Vitjazianidae,,Vitjazianidae,T01c,flagellum with callynophore and longer than peduncle,antenna 1
+22,23,,,T01c,flagellum with multiarticulate,antenna 1
+23,24,,,T20a,shorter or of different structure than pereopod 6,pereopod 7
+23,28,,,T20a,closely similar to pereopod  6 in length and morphology,pereopod 7
+24,26,,,T20a,as long as 6 but of grossly distinct morphology,pereopod 7
+24,26,,,T20a,shorter than 6 and of grossly distinct morphology,pereopod 7
+25,Pontoporeiidae,,Pontoporeiidae,T05,evenescent,rostrum
+25,Pontoporeiidae,,Pontoporeiidae,T25,anterior lobe as large as posterior lobe,coxae 5
+25,Pontoporeiidae,,Pontoporeiidae,T26,anterior lobe as large as posterior lobe,coxae 6
+25,Platyischnopidae,,Platyischnopidae,T05,huge,rostrum
+25,Platyischnopidae,,Platyischnopidae,T25,cyclindrical,coxae 5
+25,Platyischnopidae,,Platyischnopidae,T26,anterior lobe evenescent,coxae 6
+26,Urothoidae,Haustorioidea,Urothoidae,T07,huge and thick dwarfing palp and incisor thick and lacking teeth and molar huge and almost smooth,mandible
+26,27,,,T07,ordinary incisor thin with at least weak teeth and molar large to small and triturative to smooth,mandible
+27,Pontoporeiidae,,Pontoporeiidae,T02c,without lateral facial fossorial armaments,antenna 2
+27,Pontoporeiidae,,Pontoporeiidae,T05,almost but vertically thickened,rostrum
+27,Pontoporeiidae,,Pontoporeiidae,T13f,both elongate and wider than propodus,gnathopod 2 carpus
+27,Phoxocephalidae,,Phoxocephalidae,T02c,with lateral facial fossorial armaments,antenna 2
+27,Phoxocephalidae,,Phoxocephalidae,T05,either long and flat dorsoventrally or often reduced but remaining flat,rostrum
+27,Phoxocephalidae,,Phoxocephalidae,T13f,not both elongate and wider than propodus,gnathopod 2 carpus
+28,Iphimediidae,,Iphimediidae,T45,covered with large articulate spines,body
+28,29,,,T45,not covered with spines,body
+29,Gammaridae,Gammaroidea,Gammaridae,T18a,not of fossorial form,pereopod 5
+29,Gammaridae,Gammaroidea,Gammaridae,T19a,not of fossorial form,pereopod 6
+29,Gammaridae,Gammaroidea,Gammaridae,T20a,not of fossorial form,pereopod 7
+29,30,,,T18a,fossorial form,pereopod 5
+29,30,,,T19a,fossorial form,pereopod 6
+29,30,,,T20a,fossorial form,pereopod 7
+30,Sanchoidae,,Sanchoidae,T42,outer ramus shortened,uropod 3
+30,Sanchoidae,,Sanchoidae,T42,outer ramus never less than 95% as long as inner,uropod 3
+31,Pontoporeiidae Cardenioidae,,Pontoporeiidae Cardenioidae,T05,with normal gammarid vertically thicked vestigial rostrum,head
+31,other Haustorioidea,,,T05,with vestigial to well-developed dorsoventrally flattened rostrum,head
+31,Conlukiidae Platyischnopidae,,Conlukiidae Platyischnopidae,T05,with cyclindrical rostrum,head
+32,33,,,T46,anterior coxae acuminate midventrally,coxae
+32,33,,,T01f,less than 3-articulate,accessory flagellum
+32,34,,,T46,anterior coxae not acuminate midventrally or if acuminate,coxae
+32,34,,,T01f,more than 2-articulate,accessory flagellum
+33,Megaluropidae,Calliopioidea,Megaluropidae,T20a,1.5 times as long as pereopod 6,pereopod 7
+33,Iphimediidae,,Iphimediidae,T20a,not significantly longer than 6,pereopod 7
+34,Hyperiopsidae,,Hyperiopsidae,T16d,extremely elongate relative to other articles,pereopod 3 merus
+34,Hyperiopsidae,,Hyperiopsidae,T17d,extremely elongate relative to other articles,pereopod 4 merus
+34,Hyperiopsidae,,Hyperiopsidae,T08,palp distinctly geniculate and scaled,maxilla 1
+34,35,,,T16d,not elongate,pereopod 3 merus
+34,35,,,T17d,not elongate,pereopod 4 merus
+34,35,,,T08,palp neither strongly geniculate nor scaled,maxilla 1
+35,36,,,T43,entire,telson
+35,40,,,T43,cleft,telson
+36,37,,,T01g,2+articulate,accessory flagellum
+36,38,,,T01g,1-articulate or absent,accessory flagellum
+37,Ischyroceridae,,Ischyroceridae,T42,rami cyclindroconical much shorter than elongate peduncle,uropod 3
+37,Gammaridae,Gammaroidea,Gammaridae,T42,lanceolate or flabellate much longer than peduncle,uropod 3
+38,Pleustidae,,Pleustidae,T49,unpointed tilted oval lobes astride partially coalesced inner lobes,labium
+38,39,,,T49,with tilted or untilted outer lobes,labium
+38,39,,,T07,distinct extentions inner lobes when present not coalesced,mandibular
+39,Eusiridae,,Eusiridae,T43,longer than wide,telson
+39,Gammaridae,Gammaroidea,Gammaridae,T43,as wide as or wider than long,telson
+40,41,,,T01a,article 1 of flagellum as long as peduncle,antenna 1
+40,42,,,T01a,article 1 of flagellum not longer than half of peduncle,antenna 1
+41,Synopiidae,,Synopiidae,T48,geleate,head
+41,Synopiidae,,Synopiidae,T05,well developed,rostrum
+41,Vitjazianidae,,Vitjazianidae,T48,not geleate,head
+41,Vitjazianidae,,Vitjazianidae,T05,small,rostrum
+42,43,,,T43,elongate twice as long as peduncle of uropod 3,telson
+42,46,,,T43,rarely longer than peduncle of uropod 3 or never twice as long as peduncle of uropod 3,telson
+43,Synopiidae,,Synopiidae,T39,twice as long as urosomite 2,urosomite 3
+43,Synopiidae,,Synopiidae,T48,with anterodorsal margin extended as blunt plow,head
+43,44,,,T39,less than 1.5 times as long as urosomite 2,urosomite 3
+43,44,,,T48,normal gammaridae dimentions,head
+44,Synopiidae,,Synopiidae,T01g,3+articulate,accessory flagellum
+44,45,,,T01g,0 to 2-articulate ,accessory flagellum
+45,Eusiridae,,Eusiridae,T42,inner ramus as long as outer,uropod 3
+45,Gammaridae,Gammaroidea,Gammaridae,T42,inner ramus reduced,uropod 3
+46,Gammaridae,Gammaroidea,Gammaridae,T42,inner ramus short and scale-like,uropod 3
+46,48,,,T42,inner ramus elongate,uropod 3
+47,Megaluropidae,Calliopioidea,Megaluropidae,T42,outer ramus with 2 articulate,uropod 3
+47,Gammaridae,Gammaroidea,Gammaridae,T42,outer ramus with 1 articulate,uropod 3
+48,Megaluropidae,Calliopioidea,Megaluropidae,T42,rami foliaceous,uropod 3
+48,Gammaridae,Gammaroidea,Gammaridae,T42,rami lanceolate,uropod 3
+49,Gammaridae,Gammaroidea,Gammaridae,T07,palp shorter than article 1 or absent,mandibular
+49,50,,,T07,palp longer than article 1 or 0 to 1 articulate,mandibular
+50,Gammaridae,Gammaroidea,Gammaridae,T12a,simple,gnathopod 1
+50,51,,,T12a,subchelate,gnathopod 1
+51,Gammaridae,Gammaroidea,Gammaridae,T01g,more than 2 articulate,accessory flagellum
+51,Eusiridae,,Eusiridae,T01g,0 to 1 articulate,accessory flagellum
+Key to Marine families of Suborder Gammaridea,,,,,,
+Section C,,,,,,
+suborder numbers,suborder id,superfamily,family,trait id,trait value,observation note
+1,2,,,T48,strong depressed,head
+1,2,,,T45,strong depressed,body
+1,2,,,T46,splayed,coxae
+1,Eophliantidae,,Eophliantidae,T48,subglobular,head
+1,Eophliantidae,,Eophliantidae,T45,cyclindrical,body
+1,Eophliantidae,,Eophliantidae,T46,short not splayed,coxae
+1,3,,,T48,compressed or subglobular,head
+1,3,,,T45,compressed laterally,body
+1,3,,,T46,not grossly splayed,coxae
+2,Temnophliidae,,Temnophliidae,T53,with pleurae,pereonites
+2,Phliantidae,,Phliantidae,T53,lacking pleurae,pereonites
+3,Sebidae,,Sebidae,T42,uniramous,uropod 3
+3,Sebidae,,Sebidae,T12a,strongly chelate,gnathopod 1
+3,Sebidae,,Sebidae,T13a,strongly chelate,gnathopod 2
+3,Sebidae,,Sebidae,T01a,much longer than or equal to article 1,antenna 1
+3,14,,,T42,usually biramous,uropod 3
+3,14,,,T01a,article 2 not elongate,antenna 1
+3,14,,,T01a,article 2 of antenna 1 shorter than or equal to article,antenna 1
+3,14,,,T12a,gnathopod 1 not chelate,gnathopod 1
+3,Platyischnopidae,,Platyischnopidae,T42,biramous,uropod 3
+3,Platyischnopidae,,Platyischnopidae,T12a,chelate,gnathopod 1
+3,Platyischnopidae,,Platyischnopidae,T13a,chelate,gnathopod 2
+3,Platyischnopidae,,Platyischnopidae,T01a,article 2 equal to or slightly longer than article 1,antenna 1
+4,5,,,T16d,enormous elongate relative to other articles and often inflated,pereopod 3 merus
+4,5,,,T17d,enormous elongate relative to other articles and often inflated,pereopod 4 merus
+4,6,,,T16d,normal length relative to other articles,pereopod 3 merus
+4,6,,,T17d,normal length relative to other articles,pereopod 4 merus
+5,Hyperiopsidae,,Hyperiopsidae,T08,palp clauiform slightly geniulate,maxilla 1
+5,couplet 6,,,T08,not geniculate,maxilla 1
+6,7,,,T13a,with form of lysianassid mitten,gnathopod 2
+6,13,,,T13a,not typical of lysianassids,gnathopod 2
+7,8,,,T01f,absent,accessory flagellum
+7,8,,,T34,with sharp dorsal process,pleonite 1
+7,8,,,T35,with sharp dorsal process,pleonite 2
+7,8,,,T36,with sharp dorsal process,pleonite 3
+7,9,,,T01f,absent,accessory flagellum
+7,9,,,T34,dorsally smooth,pleonite 1
+7,9,,,T35,dorsally smooth,pleonite 2
+7,9,,,T36,dorsally smooth,pleonite 3
+8,Iphimediidae,,Iphimediidae,T07,palp present,mandibular
+8,Iphimediidae,,Iphimediidae,T42,biramous,uropod 3
+8,Ceinidae,,Ceinidae,T07,absent,mandibular
+8,Ceinidae,,Ceinidae,T42,lacking rami,uropod 3
+9,10,,,T05,well developed cyclindrical,rostrum
+9,11,,,T05,vestigial,rostrum
+10,Platyischnopidae,,Platyischnopidae,T42,with inner ramus reduced and outer with 2 articles,uropod 3
+10,Lysianassidae,,Lysianassidae,T42,aequiramous and outer ramus with 1 articles,uropod 3
+11,Platyischnopidae,,Platyischnopidae,T07,incisor not dentate in middle,mandibular
+11,Lysianassidae,,Lysianassidae,T07,incisor dentate in middle,mandibular
+12,Stegocephalidae,,Stegocephalidae,T07,flat without palp,mandible
+12,Lysianassidae,,Lysianassidae,T07,otherwise and either thick or with palp,mandible
+13,14,,,T57,some of urosomites coalesced,urosomite
+13,16,,,T57,separate,urosomite
+14,15,,,T42,biramous,uropod 3
+14,Kuriidae,Kuriidea,Kuriidae,T42,uniramous,uropod 3
+15,Dexaminidae,,Dexaminidae,T21,dexaminid form,coxae 1
+15,Dexaminidae,,Dexaminidae,T22,dexaminid form,coxae 2
+15,Dexaminidae,,Dexaminidae,T23,dexaminid form,coxae 3
+15,Dexaminidae,,Dexaminidae,T24,dexaminid form,coxae 4
+15,Dexaminidae,,Dexaminidae,T07,body 3 dimensional,mandibular
+15,Stegocephalidae,,Stegocephalidae,T21,stegocephalid form,coxae 1
+15,Stegocephalidae,,Stegocephalidae,T22,stegocephalid form,coxae 2
+15,Stegocephalidae,,Stegocephalidae,T23,stegocephalid form,coxae 3
+15,Stegocephalidae,,Stegocephalidae,T24,stegocephalid form,coxae 4
+15,Stegocephalidae,,Stegocephalidae,T07,body flat,mandibular
+16,17,,,T42,formed only of small scale like peduncle,uropod 3
+16,18,,,T42,bearing 1 to 2 rami,uropod 3
+16,Nihotungidae,,Nihotungidae,T42,with small 2 articulate ramus,uropod 3
+17,Didymocheilidae,,Didymocheilidae,T07,with palp,mandible
+17,Didymocheilidae,,Didymocheilidae,T08,with palp,maxilla 1
+17,Didymocheilidae,,Didymocheilidae,T08,inner plates with medial setae,maxilla 1
+17,Didymocheilidae,,Didymocheilidae,T09,inner plates with medial setae,maxilla 2
+17,Ceinidae,,Ceinidae,T07,lacking palp,mandible
+17,Ceinidae,,Ceinidae,T08,lacking palp,maxilla 1
+17,Ceinidae,,Ceinidae,T08,inner plates lacking medial setae,maxilla 1
+17,Ceinidae,,Ceinidae,T09,inner plates lacking medial setae,maxilla 2
+18,Corophiidae,,Corophiidae,T42,1 ramus,uropod 3
+18,19,,,T42,2 rami,uropod 3
+19,Anamixidae,,Anamixidae,T07,vestigial,mandibles
+19,Anamixidae,,Anamixidae,T08,vestigial,maxilla 1
+19,Anamixidae,,Anamixidae,T09,vestigial,maxilla 2
+19,20,,,T07,well developed,mandibles
+19,20,,,T08,well developed,maxilla 1
+19,20,,,T09,well developed,maxilla 2
+20,Bateidae,,Bateidae,T12b,reduced to 1 article,gnathopod 1
+20,21,,,T12b,composed of 7 articles,gnathopod 1
+21,22,,,T01g,0 to 2 articulate,accessory flagellum
+21,22,,,T51,form lateral view usually grouped in conical bundle,mouthparts
+21,22,,,T54,not strongly spinose,pereopods
+22,Iphimediidae,,Iphimediidae,T07,palp present,mandibular
+22,Iphimediidae,,Iphimediidae,T07,processiferous,pleonites
+22,Stegocephalidae,,Stegocephalidae,T07,palp absent,mandibular
+22,Stegocephalidae,,Stegocephalidae,T55,smooth,pleonites
+Key to Marine families of Suborder Gammaridea,,,,,,
+Section D,,,,,,
+suborder numbers,suborder id,superfamily,family,trait id,trait value,observation note
+1,2,,,T45,cyclindrical or depressed,body
+1,8,,,T45,compressed laterally,body
+2,3,,,T07,lacking palp and molar degraded,mandible
+2,6,,,T07,with 1 to 3 articulate palp and molar triturative,mandible
+3,4,,,T45,cyclindrical smooth,body
+3,4,,,T46,not splayed,coxae
+3,5,,,T45,strongly depressed very broad and rugose,body
+3,5,,,T46,large splayed,coxae
+4,Colomastigidae,,Colomastigidae,T10,inner plates tiny mostly fused together,maxilliped
+4,Eophliantidae,,Eophliantidae,T10,inner plates large separate,maxilliped
+5,Temnophliidae,,Temnophliidae,T53,with pleurae,pereonites
+5,Phliantidae,,Phliantidae,T53,lacking pleurae,pereonites
+6,7,,,T37,coalesced,urosomite 1
+6,7,,,T38,coalesced,urosomite 2
+6,7,,,T39,coalesced,urosomite 3
+6,Podoceridae,,Podoceridae,T38,coalesced,urosomite 2
+6,Podoceridae,,Podoceridae,T39,coalesced,urosomite 3
+6,Podoceridae,,Podoceridae,T37,very elongate,urosomite 1
+7,Cheluridae,,Cheluridae,T40,diverse structure,uropod 1
+7,Cheluridae,,Cheluridae,T41,diverse structure,uropod 2
+7,Corophiidea,,,T40,similar to each other or degraded,uropod 1
+7,Corophiidea,,,T41,similar to each other or degraded,uropod 2
+8,9,,,T42,uniramous or without rami,uropod 3
+8,13,,,T42,biramous,uropod 3
+9,10,,,T21,visible not covered by following coxae,coxa 1
+9,12,,,T21,small hidden by large following coxae,coxa 1
+10,Pleioplateidae,,Pleioplateidae,T48,with sharp cusps,head
+10,11,,,T42,lackingg ramus,uropod 3
+11,Kuriidae,Kuriidea,Kuriidae,T07,lacking palp and molar present ,mandible
+11,Kuriidae,Kuriidea,Kuriidae,T10,inner plates fully developed,maxilliped
+11,Kuriidae,Kuriidea,Kuriidae,T43,cleft,telson
+11,Pagetinidae,,Pagetinidae,T07,bearing palp and molar absent,mandible
+11,Pagetinidae,,Pagetinidae,T10,inner plates obsolescent,maxilliped
+11,Pagetinidae,,Pagetinidae,T43,entire,telson
+12,Cressidae,,Cressidae,T43,coalesed and reognisable and unthikened,telson
+12,Cressidae,,Cressidae,T39,coalesed,urosome 3
+12,Cressidae,,Cressidae,T18a,expanded,pereopod 5
+12,Stenothoidae,,Stenothoidae,T43,thicked dorsoventrally but separate from telson,telson
+12,Stenothoidae,,Stenothoidae,T57,partially coalesced,urosomites
+12,Stenothoidae,,Stenothoidae,T18b,linear,pereopod 5 basis
+13,14,,,T07,palp absent,mandibular
+13,15,,,T07,palp present,mandibular
+14,Dexaminidae,,Dexaminidae,T20a,not significantly longer than pereopod 6,pereopod 7
+14,Dexaminidae,,Dexaminidae,T20g,short curved and naked,pereopod 7 dactyl
+14,Dexaminidae,,Dexaminidae,T43,cleft,telson
+14,Paracalliopiidae,,Paracalliopiidae,T20a,much longer than pereopod 6,pereopod 7
+14,Paracalliopiidae,,Paracalliopiidae,T20g,elongate straight and setose,pereopod 7 dactyl
+14,Paracalliopiidae,,Paracalliopiidae,T43,entire,telson
+15,16,,,T20a,different structure from pereopod 6,pereopod 7
+15,16,,,T20b,shield like or with sharp angles,pereopod 7 basis
+15,18,,,T20a,similar to but often longer than pereopod 6,pereopod 7
+16,Ampeliscidae,,Ampeliscidae,T48,elongate or with cuticular lenses,head
+16,Ampeliscidae,,Ampeliscidae,T20b,long and dense borne on ventral lobe,pereopod 7 basis
+16,17,,,T48,ordinary or galeate and lacking cuticular lenses,head
+16,17,,,T04,ordinary,eyes
+16,17,,,T20b,setae short or sparse and ventral lobe not prominent,pereopod 7 basis
+17,Dexaminidae,,Dexaminidae,T43,cleft,telson
+17,Dexaminidae,,Dexaminidae,T42,peduncle shorter than telson or rami of uropod 3,uropod 3
+17,Dexaminidae,,Dexaminidae,T20g,short,pereopod 7 dactyl
+17,22,,,T43,entire,telson
+17,22,,,T42,peduncle elongate longer than telson almost as long as rami or vestigial,uropod 3
+17,22,,,T20g,elongate,pereopod 7 dactyl
+18,Dexaminidae,,Dexaminidae,T43,cleft or deeply emarginate and flat,telson
+18,19,,,T43,entire or slightly emarginate fleshy,telson
+19,20,,,T37,elongate,urosomite 1
+19,20,,,T38,not elongate or all urosomite coalesced,urosomite 2
+20,Cheluridae,,Cheluridae,T40,extremely diverse,uropod 1
+20,Cheluridae,,Cheluridae,T41,extremely diverse and with huge peduncular expansion,uropod 2
+20,21,,,T40,similar to uropod 2 and ordinary or reduced or absent,uropod 1
+20,21,,,T41,similar to uropod 1 and ordinary or reduced or absent,uropod 2
+21,Corophioidea,Corophioidea,,T43,fleshy and fixed solially,telson
+21,Corophioidea,Corophioidea,,T20a,not greatly longer than pereopod 6,pereopod 7
+21,Corophioidea,Corophioidea,,T20g,short,pereopod 7 dactyl
+21,22,,,T43,flat or flappable,telson
+21,22,,,T20a,greatly longer than pereopod 6,pereopod 7
+21,22,,,T20g,long and setose,pereopod 7 dactyl
+22,Oedicerotidae,,Oedicerotidae,T04,fused dorsally or absent,eyes
+22,Oedicerotidae,,Oedicerotidae,T48,galeate,head
+22,Oedicerotidae,,Oedicerotidae,T12a,ordinary,gnathopod 1
+22,Oedicerotidae,,Oedicerotidae,T13a,ordinary,gnathopod 2
+22,Oedicerotidae,,Oedicerotidae,T40,lacking apical ramal spines,uropod 1
+22,Oedicerotidae,,Oedicerotidae,T41,lacking apical ramal spines,uropod 2
+22,Paracalliopiidae,,Paracalliopiidae,T04,close together but bilateral,eyes
+22,Paracalliopiidae,,Paracalliopiidae,T48,not galeate,head
+22,Paracalliopiidae,,Paracalliopiidae,T12a,unusal,gnathopod 1
+22,Paracalliopiidae,,Paracalliopiidae,T13a,unusal,gnathopod 2
+22,Paracalliopiidae,,Paracalliopiidae,T40,with apical ramal spines,uropod 1
+22,Paracalliopiidae,,Paracalliopiidae,T41,with apical ramal spines,uropod 2
+22,Exoedicerotidae,,Exoedicerotidae,T04,close together but bilateral,eyes
+22,Exoedicerotidae,,Exoedicerotidae,T48,not elongate,head
+22,Exoedicerotidae,,Exoedicerotidae,T12a,unusal,gnathopod 1
+22,Exoedicerotidae,,Exoedicerotidae,T13a,unusal,gnathopod 2
+22,Exoedicerotidae,,Exoedicerotidae,T40,with apical ramal spines,uropod 1
+22,Exoedicerotidae,,Exoedicerotidae,T41,with apical ramal spines,uropod 2
+Key to Marine families of Suborder Gammaridea,,,,,,
+Section E,,,,,,
+suborder numbers,suborder id,superfamily,family,trait id,trait value,observation note
+1,2,,,T12a,reduced to coxa or basis or absent,gnathopod 1
+1,3,,,T12a,with propodus to dactyl,gnathopod 1
+2,Anamixidae,,Anamixidae,T07,vestigial,mandible
+2,Anamixidae,,Anamixidae,T08,vestigial,maxilla 1
+2,Anamixidae,,Anamixidae,T09,vestigial,maxilla 2
+2,Bateidae,,Bateidae,T07,ordinary,mandible
+2,Bateidae,,Bateidae,T08,ordinary,maxilla 1
+2,Bateidae,,Bateidae,T09,ordinary,maxilla 2
+3,Haustorioidea,Haustorioidea,,T02c,article 5 strongly expanded,antenna 2
+3,4,,,T02c,article 4 not expanded,antenna 2
+4,5,,,T12a,strongly carpochelate,gnathopod 1
+4,5,,,T12f,longer than propodus,gnathopod 1 carpus
+4,6,,,T12a,subchelate or simple,gnathopod 1
+4,6,,,T12f,shorter than propodus,gnathopod 1 carpus
+4,11,,,T12a,simple or subchelate or not carpochelate,gnathopod 1
+4,11,,,T12f,longer than propodus,gnathopod 1 carpus
+5,Anamixidae,,Anamixidae,T12g,evenly slender rectangular posterior margin not axially carpochela extending full length of propodus,gnathopod 1 propodus
+5,Amphilochidae Cyproideinidae,,Amphilochidae Cyproideinidae,T12g,not evenly slender posterior margin not axially straight and carpochelate not reaching full length of propodus,gnathopod 1 propodus
+6,7,,,T42,biramous,uropod 3
+6,17,,,T42,uniramous,uropod 3
+7,Platyischnopidae,,Platyischnopidae,T48,platyischopid from thus with shark rose projection and pereopods fossorial,head
+7,8,,,T48,not of platyischnopid form pereopods not fossorial,head
+8,9,,,T19a,extremely elongate flayellate apically and coxae 2 to 7 short of equal length,pereopod 6
+8,Maxillipiidae,,Maxillipiidae,T19a,ordinary coxae 2 to 7 of diverent group,pereopod 6
+9,10,,,T24,not excavate posterodorsally,coxa 4
+9,10,,,T16a,glandular,pereopod 3
+9,10,,,T17a,glandular,pereopod 4
+9,16,,,T24,excavate posterodorsally,coxa 4
+9,16,,,T16a,not glandular,pereopod 3
+9,16,,,T17a,not glandular,pereopod 4
+10,Corophioidea,Corophioidea,,T42,rami shorter than peduncle and outer ramus with distal hook or few subapical wire like setae no other setae,uropod 3
+10,Corophioidea,Corophioidea,,T42,rami as long as or longer than peduncle outer ramus setose or spinose but lacking special hooks or denticles,uropod 3
+11,12,,,T42,uniramous,uropod 3
+11,13,,,T42,biramous,uropod 3
+12,Stenothoidae,,Stenothoidae,T21,reduced,coxa 1
+12,Stenothoidae,,Stenothoidae,T20a,ordinary,pereopod 7
+12,Exoedicerotidae,,Exoedicerotidae,T21,ordinary,coxa 1
+12,Exoedicerotidae,,Exoedicerotidae,T20a,greatly elongate,pereopod 7
+13,14,,,T42,peduncle not or slightly elongate,uropod 3
+13,14,,,T43,elongate and cleft,telson
+13,Exoedicerotidae,,Exoedicerotidae,T42,peduncle elongate,uropod 3
+13,Exoedicerotidae,,Exoedicerotidae,T43,short entire,telson
+14,15,,,T22,large unhidden,coxa 2
+14,15,,,T23,large unhidden,coxa 3
+14,15,,,T45,smooth,body
+14,Hyperiopsidae,,Hyperiopsidae,T21,small and mostly hidden by coxa 4,coxa 1
+14,Hyperiopsidae,,Hyperiopsidae,T22,small and mostly hidden by coxa 4,coxa 2
+14,Hyperiopsidae,,Hyperiopsidae,T23,small and mostly hidden by coxa 4,coxa 3
+14,Hyperiopsidae,,Hyperiopsidae,T42,with large dorsal processes,body
+15,Exoedicerotidae Cardenioidae,,Exoedicerotidae Cardenioidae,T42,aequiramous,uropod 3
+15,Exoedicerotidae Cardenioidae,,Exoedicerotidae Cardenioidae,T13a,simple,gnathopod 2
+15,Platyischnopidae,,Platyischnopidae,T42,parviramous or variramous,uropod 3
+15,Platyischnopidae,,Platyischnopidae,T13a,subchelate or chelate,gnathopod 2
+16,Hyperiopsidae,,Hyperiopsidae,T16d,exceptionally elongate,pereopod 3 merus
+16,Hyperiopsidae,,Hyperiopsidae,T17d,exceptionally elongate,pereopod 4 merus
+16,Hyperiopsidae,,Hyperiopsidae,T01c,primary flagellum with callynophore and longer than peduncle,antenna 1
+16,Hyperiopsidae,,Hyperiopsidae,T08,palp geniculate and scaled,maxilla 1
+16,Amphilochoidea,Amphilochoidea,,T16d,not elongate,pereopod 3 merus
+16,Amphilochoidea,Amphilochoidea,,T17d,not elongate,pereopod 4 merus
+16,Amphilochoidea,Amphilochoidea,,T01c,primary flagellum on antenna 1 with callynophore poorly developed or absent,antenna 1
+16,Amphilochoidea,Amphilochoidea,,T08,palp not geniculate nor scaled grossly,maxilla 1
+17,Corophioidea,Corophioidea,,T12a,simple and slender with dense setae as long as carpus and propodus,gnathopod 1
+17,Corophioidea,Corophioidea,,T13a,simple and slender with dense setae as long as carpus and propodus,gnathopod 2
+17,Corophioidea,Corophioidea,,,at least as broad as long,coxae
+17,18,,,T12a,subchelate and one pair stout,gnathopod 1
+17,18,,,T13a,subchelate and one pair stout,gnathopod 2
+17,18,,,,longer than broad,coxae
+18,Stenothoidae,,Stenothoidae,T18b,slender and linear,pereopod 5 basis
+18,19,,,T18b,expanded as on pereopod 6 and 7,pereopod 5 basis
+19,Cressidae,,Cressidae,T42,very long 3 articulate,uropod 3
+19,Cressidae,,Cressidae,T10,surface area much smaller than article 1 of palp,maxilliped
+19,Ceinidae,,Ceinidae,,vestigial 1 articulate,uropod 3
+19,Ceinidae,,Ceinidae,T10,surface area larger than article 1 of palp,maxilliped
+Key to Marine families of Suborder Gammaridea,,,,,,
+Section F,,,,,,
+suborder numbers,suborder id,superfamily,family,trait id,trait value,observation note
+1,2,,,T07,molar triturative or if not them cup shaped,mandibular
+1,16,,,T07,molar smooth or bearing few articulate spines or molar absent or not cup shaped,mandibular
+2,3,,,T07,palp absent,mandibular
+2,9,,,T07,palp present,mandibular
+3,Kuriidae,Kuriidea,Kuriidae,T57,coalesced,urosomite
+3,4,,,T57,separate,urosomite
+4,5,,,T44,strongly spinose or setose spines and setae long,antennae
+4,5,,,T54,strongly spinose or setose spines and setae long,pereopods
+4,6,,,T44,poorly spinose or setose,antennae
+4,6,,,T54,poorly spinose or setose,pereopods
+5,Dogielinotidae,,Dogielinotidae,T12f,large lobes,gnathopod 1 carpus
+5,Dogielinotidae,,Dogielinotidae,T13f,large lobes,gnathopod 2 carpus
+5,Dogielinotidae,,Dogielinotidae,T40,without spines,uropod 1
+5,Dogielinotidae,,Dogielinotidae,T41,without spines,uropod 2
+5,Exoedicerotidae,,Exoedicerotidae,T12f,not or poorly lobate,gnathopod 1 carpus
+5,Exoedicerotidae,,Exoedicerotidae,T13f,not or poorly lobate,gnathopod 2 carpus
+5,Exoedicerotidae,,Exoedicerotidae,T40,with conspicuous apical spines,uropod 1
+5,Exoedicerotidae,,Exoedicerotidae,T41,with conspicuous apical spines,uropod 2
+6,Ceinidae,,Ceinidae,T42,lacking ramus,uropod 3
+6,7,,,T42,with ramus,uropod 3
+7,8,,,T18d,less than half as wide as basis and not heavily setose,pereopod 5 merus
+7,8,,,T19d,not heavily setose,pereopod 6 merus
+7,Dogielinotidae,,Dogielinotidae,T18d,about two thirds or more as wide as basis and heavily setose,pereopod 5 merus
+7,Dogielinotidae,,Dogielinotidae,T19d,heavily setose,pereopod 6 merus
+8,Hyalidae,,Hyalidae,T43,cleft,telson
+8,Hyalellidae,,Hyalellidae,T43,entire,telson
+9,Podoceridae,,Podoceridae,T37,elongate longer than urosomite 3 and more than twice as long as urosomite 2,urosomite 1
+9,10,,,T37,not elongate as above,urosomite 1
+10,11,,,T57,coalesced,urosomite
+10,12,,,T57,separate,urosomite
+11,Cheluridae,,Cheluridae,T40,strongly diverse,uropod 1
+11,Cheluridae,,Cheluridae,T41,strongly diverse and peduncle grossly expanded,uropod 2
+11,Corophiopidea,,,T40,normally styliform of otherwise reduced or absent,uropod 1
+11,Corophiopidea,,,T41,normally styliform of otherwise reduced or absent,uropod 2
+12,Didymocheliidae,,Didymocheliidae,T49,lacking inner lobes and outer lobes obsolescent,labium
+12,Didymocheliidae,,Didymocheliidae,T12a,small chelate slender and propodus,gnathopod 1
+12,Didymocheliidae,,Didymocheliidae,T12g,elongate,gnathopod 1 propodus
+12,Didymocheliidae,,Didymocheliidae,T13a,small chelate slender and propodus,gnathopod 2
+12,Didymocheliidae,,Didymocheliidae,T13g,elongate,gnathopod 2 propodus
+12,13,,,T49,with inner lobes,labium
+12,13,,,T07,lobe strong,mandibular
+12,13,,,T12a,not taking lower left,gnathopod 1
+12,13,,,T13a,not taking lower left,gnathopod 2
+13,Corophioidea,Corophioidea,,T37,depressed,urosome 1
+13,Corophioidea,Corophioidea,,T38,depressed,urosome 2
+13,Corophioidea,Corophioidea,,T39,depressed,urosome 3
+13,14,,,T37,not depressed,urosome 1
+13,14,,,T38,not depressed,urosome 2
+13,14,,,T39,not depressed,urosome 3
+14,Corophioidea,Corophioidea,,T43,fleshy,telson
+14,Corophioidea,Corophioidea,,T20a,though often elongate not fossorial,pereopod 7
+14,15,,,T43,not fleshy,telson
+14,15,,,T20a,fassorial,pereopod 7
+15,Exoedicerotidae,,Exoedicerotidae,T20a,elongate,pereopod 7
+15,Exoedicerotidae,,Exoedicerotidae,T20g,elongate,pereopod 7 dactyl
+15,Conlukiidae,,Conlukiidae,T20a,equals,pereopod 7
+15,Conlukiidae,,Conlukiidae,T20g,short,pereopod 7 dactyl
+16,17,,,T07,palp present,mandibular
+16,18,,,T07,palp absent,mandibular
+17,Pagetinidae,,Pagetinidae,T12a,subchelate,gnathopod 1
+17,Pagetinidae,,Pagetinidae,T13a,subchelate,gnathopod 2
+17,Pagetinidae,,Pagetinidae,T10,outer plate very small and inner plates obsolete,maxilliped
+17,18,,,T12a,chelate,gnathopod 1
+17,18,,,T13a,inner and outer plates well formed,gnathopod 2
+17,18,,,T10,inner and outer plates well formed,maxilliped
+18,Sebidae,,Sebidae,T01c,equal to or longer than article 1,antenna 1
+18,Sebidae,,Sebidae,T42,with ramus inner plates of maxillae 1 and maxilliae 2 lacking medial setae,uropod 3
+18,Didymocheliidae,,Didymocheliidae,T01c,shorter than article 1,antenna 1
+18,Didymocheliidae,,Didymocheliidae,T42,lacking ramous inner plates of maxillae 1 and maxilliae 2 richly setose medially or facially,uropod 3
+19,Eophliantidae,,Eophliantidae,T45,cyclindrical,body
+19,Eophliantidae,,Eophliantidae,T46,small,coxae
+19,20,,,T45,depressed rugose,body
+19,20,,,T46,splayed laterally or if not rugose,coxae
+19,20,,,T53,laterally discontiguous,pereonites
+19,21,,,T45,laterally compressed,body
+19,21,,,T46,large not splayed,coxae
+20,Temnophliidae,,Temnophliidae,T53,with lateral pleure,pereonites
+20,Phliantidae,,Phliantidae,T53,without lateral pleure,pereonites
+21,Nihotungidae,,Nihotungidae,T22,much smaller than coxa 1,coxa 2
+21,Nihotungidae,,Nihotungidae,T23,much smaller than coxa 1,coxa 3
+21,Nihotungidae,,Nihotungidae,T04,present,accessory eyes
+21,Nihotungidae,,Nihotungidae,T42,ramus with 2 articulate,uropod 3
+21,Nihotungidae,,Nihotungidae,T07,styliform bifid,mandible
+21,22,,,T22,larger than coxa 1,coxae 2
+21,22,,,T23,larger than coxa 1,coxae 3
+21,22,,,T04,absent,accessory eyes
+21,22,,,T42,ramus with 1 articulate,uropod 3
+21,22,,,T07,not styliform incisor with many teeth,mandible
+22,Najnidae,,Najnidae,T07,molar spine like,mandible
+22,Najnidae,,Najnidae,T01c,without long aesthetases,antenna 1
+22,Najnidae,,Najnidae,T42,with tiny ramus,uropod 3
+22,Tulearidae,,Tulearidae,T07,molar absent,mandible
+22,Tulearidae,,Tulearidae,T01c,with long aesthetases,antenna 1
+22,Tulearidae,,Tulearidae,T42,with large ramus,uropod 3
+22,23,,,T07,present,mandibular
+22,23,,,T01c,with long aesthetases,antenna 1
+22,23,,,T42,lacking ramus,uropod 3
+23,Pleioplateidae,,Pleioplateidae,T48,dorsoventrally depressed complexly and sharply cuspidate,head
+23,Pleioplateidae,,Pleioplateidae,T46,cuspidate,coxae
+23,Pleioplateidae,,Pleioplateidae,T44,cuspidate,antennae
+23,Ceinidae,,Ceinidae,T48,anterior body smooth,head
+23,Ceinidae,,Ceinidae,T44,smooth,antennae
+Key to Marine families of Suborder Gammaridea,,,,,,
+Section G,,,,,,
+suborder numbers,suborder id,superfamily,family,trait id,trait value,observation note
+1,2,,,T45,cyclindrical,body
+1,4,,,T45,compressed or depressed,body
+2,Colomastigidae,,Colomastigidae,T08,palp longer than outer plate,maxilla 1
+2,3,,,T10,inner lobes degraded,maxilliped
+3,Biancolinidae,,Biancolinidae,T42,biramous,uropod 3
+3,Eophliantidae,,Eophliantidae,T42,less than biramous,uropod 3
+4,Synopiidae,,Synopiidae,T07,molar enormous smooth,mandibular
+4,5,,,T07,molar of medium size triturative,mandibular
+4,9,,,T07,molar evanescent or absent not triturative,mandibular
+5,6,,,T42,with subequal rami,uropod 3
+5,8,,,T42,with inner ramus reduced or absent,uropod 3
+6,Artesiidae Gammaridae,,Artesiidae Gammaridae,T42,with basofacial spine,uropod 3
+6,7,,,T42,lacking basofacial spine,uropod 3
+7,Ampithoidae,,Ampithoidae,T21,longer than broad,coxae 1
+7,Ampithoidae,,Ampithoidae,T22,longer than broad,coxae 2
+7,Ampithoidae,,Ampithoidae,T23,longer than broad,coxae 3
+7,Ampithoidae,,Ampithoidae,T24,longer than broad,coxae 4
+7,Ampithoidae,,Ampithoidae,T25,longer than broad,coxae 5
+7,Ampithoidae,,Ampithoidae,T13a,large subchelate,gnathopod 2
+7,Ampithoidae,,Ampithoidae,T13f,short lobed,gnathopod 2 carpus
+7,Ampithoidae,,Ampithoidae,T42,rami shorter than peduncle,uropod 3
+7,Ampithoidae,,Ampithoidae,T19a,pad like and ordinary,pereopod 6
+7,Maxillipiidae,,Maxillipiidae,T21,broader than long,coxae 1
+7,Maxillipiidae,,Maxillipiidae,T22,broader than long,coxae 2
+7,Maxillipiidae,,Maxillipiidae,T23,broader than long,coxae 3
+7,Maxillipiidae,,Maxillipiidae,T24,broader than long,coxae 4
+7,Maxillipiidae,,Maxillipiidae,T25,broader than long,coxae 5
+7,Maxillipiidae,,Maxillipiidae,T13a,feeble linear simple,gnathopod 2
+7,Maxillipiidae,,Maxillipiidae,T13f,elongate,gnathopod 2 carpus
+7,Maxillipiidae,,Maxillipiidae,T42,unlobed rami longer than peduncle and lanceolate,uropod 3
+7,Maxillipiidae,,Maxillipiidae,T19a,immersely and elongate apically flagellate,pereopod 6
+8,Talitroidea,Talitroidea,,T01f,absent,accessory flagellum
+8,Gammaridae,Gammaroidea,Gammaridae,T01f,present,accessory flagellum
+9,Stegocephalidae,,Stegocephalidae,T51,lateral view conically grouped below head,mouthpart
+9,Stegocephalidae,,Stegocephalidae,T42,biramous well developed,uropod 3
+9,Stegocephalidae,,Stegocephalidae,T21,compressed elongate forming lateral shield,coxa 1
+9,Stegocephalidae,,Stegocephalidae,T22,compressed elongate forming lateral shield,coxa 2
+9,Stegocephalidae,,Stegocephalidae,T23,compressed elongate forming lateral shield,coxa 3
+9,Stegocephalidae,,Stegocephalidae,T24,compressed elongate forming lateral shield,coxa 4
+9,Stegocephalidae,,Stegocephalidae,T24,excavate,coxa 4
+9,Stegocephalidae,,Stegocephalidae,T45,compressied more or less smooth,body
+9,Pardaliscidae,,Pardaliscidae,T51,grouped in conical bundle,mouthpart
+9,Pardaliscidae,,Pardaliscidae,T42,biramous,uropod 3
+9,Pardaliscidae,,Pardaliscidae,T21,short broader than long forming weak lateral shield,coxa 1
+9,Pardaliscidae,,Pardaliscidae,T22,short broader than long forming weak lateral shield,coxa 2
+9,Pardaliscidae,,Pardaliscidae,T23,short broader than long forming weak lateral shield,coxa 3
+9,Pardaliscidae,,Pardaliscidae,T24,short broader than long forming weak lateral shield,coxa 4
+9,Pardaliscidae,,Pardaliscidae,T24,not excavate,coxa 4
+9,Pardaliscidae,,Pardaliscidae,T45,semicylidrical smooth,body
+9,Phliantidae,,Phliantidae,T51,from lateral view not conically grouped below head,mouthpart
+9,Phliantidae,,Phliantidae,T42,degraded,uropod 3
+9,Phliantidae,,Phliantidae,T21,not forming lateral shield splayed laterally,coxa 1
+9,Phliantidae,,Phliantidae,T22,not forming lateral shield splayed laterally,coxa 2
+9,Phliantidae,,Phliantidae,T23,not forming lateral shield splayed laterally,coxa 3
+9,Phliantidae,,Phliantidae,T24,not forming lateral shield splayed laterally,coxa 4
+9,Phliantidae,,Phliantidae,T24,excavate,coxa 4
+9,Phliantidae,,Phliantidae,T45,depressed rugose,body
+9,Pardaliscidae,,Pardaliscidae,T51,from lateral view not conically grouped below head,mouthpart
+9,Pardaliscidae,,Pardaliscidae,T42,biramous well developed,uropod 3
+9,Pardaliscidae,,Pardaliscidae,T21,compressed very short not forming lateral shield,coxa 1
+9,Pardaliscidae,,Pardaliscidae,T22,compressed very short not forming lateral shield,coxa 2
+9,Pardaliscidae,,Pardaliscidae,T23,compressed very short not forming lateral shield,coxa 3
+9,Pardaliscidae,,Pardaliscidae,T24,compressed very short not forming lateral shield,coxa 4
+9,Pardaliscidae,,Pardaliscidae,T24,not excavate,coxa 4
+9,Pardaliscidae,,Pardaliscidae,T45,compressed smooth,body
+Key to Marine families of Suborder Gammaridea,,,,,,
+Section H,,,,,,
+suborder numbers,suborder id,superfamily,family,trait id,trait value,observation note
+1,2,,,T10,palp with fewer than 4 articles,maxilliped
+1,3,,,T10,palp with 4 articles,maxilliped
+2,Iphimediidae,,Iphimediidae,T21,grotesque,coxae 1
+2,Iphimediidae,,Iphimediidae,T22,grotesque,coxae 2
+2,Iphimediidae,,Iphimediidae,T23,grotesque,coxae 3
+2,Iphimediidae,,Iphimediidae,T24,not larger than 3 not sharply produced ventrally,coxa 4
+2,Lafystiidae,,Lafystiidae,T21,uniform,coxae 1
+2,Lafystiidae,,Lafystiidae,T22,uniform,coxae 2
+2,Lafystiidae,,Lafystiidae,T23,uniform,coxae 3
+2,Lafystiidae,,Lafystiidae,T24,larger than 3 and sharply produced ventrally,coxa 4
+3,4,,,T51,from lateral view conically grouped below head,mouthparts
+3,5,,,T51,from lateral view quardrately grouped below head,mouthparts
+4,Iphimediidae,,Iphimediidae,T46,anterior long and some acuminate ventrally,coxae
+4,Pardaliscidae,,Pardaliscidae,T46,anterior short and not acuminate ventrally,coxae
+5,6,,,T12a,carpochelate,gnathopod 1
+5,7,,,T12a,propodochelate subchelate or simple,gnathopod 1
+6,Leucothoidae,,Leucothoidae,T12a,huge,gnathopod 1
+6,Leucothoidae,,Leucothoidae,T13a,huge,gnathopod 2
+6,Leucothoidae,,Leucothoidae,T01a,peduncle elongate,antenna 1
+6,Leucothoidae,,Leucothoidae,T02a,peduncle elongate,antenna 2
+6,Leucothoidae,,Leucothoidae,T10,small,maxilliped
+6,Stilipedidae,,Stilipedidae,T12a,feeble,gnathopod 1
+6,Stilipedidae,,Stilipedidae,T13a,feeble,gnathopod 2
+6,Stilipedidae,,Stilipedidae,T01a,peduncle very elongate,antenna 1
+6,Stilipedidae,,Stilipedidae,T02a,peduncle very elongate,antenna 2
+6,Stilipedidae,,Stilipedidae,T10,huge,maxilliped
+7,8,,,T07,molar present though occasionally minute,mandibular
+7,29,,,T07,molar absent,mandibular
+8,Phoxocephalidae,,Phoxocephalidae,T20a,much shorter and of different structure than prereopod 6,prereopod 7
+8,Phoxocephalidae,,Phoxocephalidae,T05,with strongly depressed rostrum,head
+8,Haustorioidea,Haustorioidea,,T20a,shorter than pereopod 6 but of similar structure,prereopod 7
+8,Haustorioidea,Haustorioidea,,T05,rostrum cyclindrical or flattened even though tiny,head
+8,9,,,T20a,unlike pereopod 6,prereopod 7
+8,9,,,T48,longer and of different structure or with shield shaped article 2,head
+8,11,,,T20a,similar to pereopod 6 and rarely shorter than 6,prereopod 7
+8,11,,,T05,rostrum if present not flattened,head
+9,Oedicerotidae Exoedicerotidae,,Oedicerotidae Exoedicerotidae,T42,aequiramous peduncle elongate or vestigial,uropod 3
+9,10,,,T42,grossly variamous or parriramous peduncle short relative to outer ramus,uropod 3
+10,Platyischnopidae,,Platyischnopidae,T05,with cyclindrical rostrum,head
+10,Artesiidae,,Artesiidae,T48,ordinary,head
+11,12,,,T43,elongate more than twice as long as urosomite 3,telson
+11,14,,,T43,short subequal to or shorter than urosomite 3,telson
+12,Eusiridae,,Eusiridae,T01f,1 articulate,accessory flagellum
+12,Eusiridae,,Eusiridae,T44,with large calceoli,antennae
+12,Eusiridae,,Eusiridae,T12a,large and strongly subchelate,gnathopod 1
+12,Eusiridae,,Eusiridae,T13a,large and strongly subchelate,gnathopod 2
+12,13,,,T01f,multiarticulate,accessory flagellum
+12,13,,,T44,lacking calceoli,antennae
+12,13,,,T12a,feeble,gnathopod 1
+12,13,,,T13a,feeble,gnathopod 2
+13,Synopiidae,,Synopiidae,T07,3 dimentional and molar present,mandible
+13,Synopiidae,,Synopiidae,T46,not short,coxae
+13,Pardaliscidae,,Pardaliscidae,T07,very flat and molar absent,mandible
+13,Pardaliscidae,,Pardaliscidae,T46,short,coxae
+14,15,,,T18a,fossorial some of setae at least half as long as longest article,pereopod 5
+14,15,,,T19a,fossorial some of setae at least half as long as longest article,pereopod 6
+14,15,,,T20a,fossorial some of setae at least half as long as longest article,pereopod 7
+14,17,,,T18a,not fossorial setae and spines very short scarely exceeding length of article 3,pereopod 5
+14,17,,,T19a,not fossorial setae and spines very short scarely exceeding length of article 4,pereopod 6
+14,17,,,T20a,not fossorial setae and spines very short scarely exceeding length of article 5,pereopod 7
+15,Oedicerotidae,,Oedicerotidae,T01g,0 to 1 articulate tiny,accessory flagellum
+15,Oedicerotidae,,Oedicerotidae,T20a,very elongate at least 1.5 times as long as pereopod 5 and pereopod 6,pereopod 7
+15,Oedicerotidae,,Oedicerotidae,T42,elongate peduncle elongate and rami slender lanceolate subequal to peduncle and outer ramus 1 articulate,uropod 3
+15,Oedicerotidae,,Oedicerotidae,T43,short linguiform and entire or emarginate,telson
+15,16,,,T01g,rarely vestigial 2 or more articulate,accessory flagellum
+15,16,,,T20a,appoximate to 6 or much shorter than pereopod 6,pereopod 7
+15,16,,,T42,peduncle short rami unequal in females and outer ramus 2 articulate,uropod 3
+15,16,,,T43,cleft even minutely and elongate,telson
+16,Haustorioidea,Haustorioidea,,T46,large and overlapping ,coxae
+16,Haustorioidea,Haustorioidea,,T12g,not dominant,gnathopod 1 propodus
+16,Haustorioidea,Haustorioidea,,T13g,not dominant,gnathopod 2 propodus
+16,Haustorioidea,Haustorioidea,,T40,peduncle lacking basofacial spine,uropod 1
+16,Carangoliopsidae,,Carangoliopsidae,T46,minute disjunct,coxae
+16,Carangoliopsidae,,Carangoliopsidae,T12g,dominant,gnathopod 1 propodus
+16,Carangoliopsidae,,Carangoliopsidae,T13g,dominant,gnathopod 2 propodus
+16,Carangoliopsidae,,Carangoliopsidae,T40,peduncle with basofacial spine,uropod 1
+17,18,,,T43,cleft,telson
+17,22,,,T43,entire,telson
+18,19,,,T12a,powerfully subchelate,gnathopod 1
+18,19,,,T13a,powerfully subchelate,gnathopod 2
+18,20,,,T12a,feeble,gnathopod 1
+18,20,,,T13a,feeble,gnathopod 2
+19,Amphilochidae,,Amphilochidae,T01f,absent,accessory flagellum
+19,Amphilochidae,,Amphilochidae,T05,nearly as long as article 1 of antenna 1,rostrum
+19,Amphilochidae,,Amphilochidae,T43,cleft 40%,telson
+19,Liljeborgiidae,,Liljeborgiidae,T01f,2 more articulate,accessory flagellum
+19,Liljeborgiidae,,Liljeborgiidae,T05,obsolescent,rostrum
+19,Liljeborgiidae,,Liljeborgiidae,T43,cleft 75%,telson
+19,Pleustidae,,Pleustidae,T01f,0 to 1 articulate,accessory flagellum
+19,Pleustidae,,Pleustidae,T05,obsolescent,rostrum
+19,Pleustidae,,Pleustidae,T43,cleft 25%,telson
+20,Synopiidae,,Synopiidae,T07,molar a large setulose tuberosity,mandibular
+20,21,,,T07,molar a conical or trapezoidal setose lamina or hump,mandibular
+21,Stilipedidae,,Stilipedidae,T46,long,coxae
+21,Stilipedidae,,Stilipedidae,T21,broadened,coxa 1
+21,Pardaliscidae,,Pardaliscidae,T46,short,coxae
+21,Pardaliscidae,,Pardaliscidae,T21,not broadened,coxa 1
+21,Iphimediidae,,Iphimediidae,T46,long,coxae
+21,Iphimediidae,,Iphimediidae,T21,broadened,coxa 1
+22,Synopiidae,,Synopiidae,T23,with about 3 times surface area of coxa 4,coxa 3
+22,Synopiidae,,Synopiidae,T10,foliaceous,maxilliped
+22,Synopiidae,,Synopiidae,T07,palp article 3 vestigial and subequal to article 1,mandibular
+22,23,,,T24,slightly larger than coxa 3 and subequal to or scarcely smaller than coxa 3,coxa 4
+22,23,,,T10,not foliaceous,maxilliped
+22,23,,,T07,palp article 3 much longer than article 1,mandibular
+23,24,,,T21,wider than long,coxae 1
+23,24,,,T22,wider than long,coxae 2
+23,24,,,T23,wider than long,coxae 3
+23,24,,,T24,wider than long,coxae 4
+23,25,,,T21,longer than wide,coxae 1
+23,25,,,T22,longer than wide,coxae 2
+23,25,,,T23,longer than wide,coxae 3
+23,25,,,T24,longer than wide,coxae 4
+24,Calliopiidae Eusiridae,,Calliopiidae Eusiridae,,contiguous or slightly overlapping,coxae
+24,Laphystiopsidae,,Laphystiopsidae,,not touching serially,coxae
+25,26,,,T07,molar a setose conical lamella,mandibular
+25,27,,,T07,molar bulbous ovate or cyclindrical,mandibular
+26,Stilipedidae,,Stilipedidae,T21,boarder than coxa 2,coxa 1
+26,Iphimediidae,,Iphimediidae,T21,not broader than coxa 2,coxa 1
+27,Hyperiopsidae,,Hyperiopsidae,T16a,merus enormously elongate,pereopod 3
+27,Hyperiopsidae,,Hyperiopsidae,T17a,merus enormously elongate,pereopod 4
+27,Hyperiopsidae,,Hyperiopsidae,T01f,long and more 3 articulate,accessory flagellum
+27,28,,,T16a,ordinary,pereopod 3
+27,28,,,T17a,ordinary,pereopod 4
+27,28,,,T01f,0 to 2 articulate,accessory flagellum
+28,Bolttsiidae,,Bolttsiidae,T09,inner plate with apical spine only and no medial armament medial armament,maxilla 2
+28,Bolttsiidae,,Bolttsiidae,T10,medial margin on outer plate irregularly aculivate with 4 to 5 irregularly placed setal spines,maxilliped
+28,Bolttsiidae,,Bolttsiidae,T12g,expanded apiced palm subtransverse,gnathopod 1 propodus
+28,Bolttsiidae,,Bolttsiidae,T13g,expanded apiced palm subtransverse,gnathopod 2 propodus
+28,Calliopiidae Pleustidae,,Calliopiidae Pleustidae,T09,inner plate medially or apically multisetose,maxilla 2
+28,Calliopiidae Pleustidae,,Calliopiidae Pleustidae,T10,medial margin on outer plate regularly spinose or setose,maxilliped
+28,Calliopiidae Pleustidae,,Calliopiidae Pleustidae,T12g,not expanded apical palm not transverse,gnathopod 1 propodus
+28,Calliopiidae Pleustidae,,Calliopiidae Pleustidae,T13g,not expanded apical palm not transverse,gnathopod 2 propodus
+29,Pardaliscidae,,Pardaliscidae,T08,not foliaceous,maxilla 1
+29,Pardaliscidae,,Pardaliscidae,T09,not foliaceous,maxilla 2
+29,Pardaliscidae,,Pardaliscidae,T21,not expanded,coxa 1
+29,Stilipedidae,,Stilipedidae,T08,not foliaceous,maxilla 1
+29,Stilipedidae,,Stilipedidae,T09,foliaceous,maxilla 2
+29,Stilipedidae,,Stilipedidae,T21,expanded,coxa 1
+Key to Marine families of Suborder Gammaridea,,,,,,
+Section I,,,,,,
+suborder numbers,suborder id,superfamily,family,trait id,trait value,observation note
+1,2,,,T20a,exceeding 1.5 times length of pereopod 5 and 6,pereopod 7
+1,4,,,T20a,scarely longer than pereopod 6,pereopod 7
+2,Oedicerotidae,,Oedicerotidae,T40,rami without apical or subequal spines,uropod 1
+2,Oedicerotidae,,Oedicerotidae,T41,rami without apical or subequal spines,uropod 2
+2,3,,,T40,with apical or subapical spines,uropod 1
+2,3,,,T41,with apical or subapical spines,uropod 2
+3,Exoedicerotidae,,Exoedicerotidae,T42,maginiramous or vestigial and peduncle elongate or vestigial,uropod 3
+3,Exoedicerotidae,,Exoedicerotidae,T25,anterior lobe as long as posterior lobe,coxae 5
+3,Exoedicerotidae,,Exoedicerotidae,T26,anterior lobe as long as posterior lobe,coxae 6
+3,Platyischnopidae,,Platyischnopidae,T42,variramous and peduncle short,uropod 3
+3,Platyischnopidae,,Platyischnopidae,T25,anterior lobe longer than posterior lobe,coxae 5
+3,Platyischnopidae,,Platyischnopidae,T26,anterior lobe longer than posterior lobe,coxae 6
+3,Melphidippidae,,Melphidippidae,T42,magniramous and peduncle short,uropod 3
+3,Melphidippidae,,Melphidippidae,T25,anterior lobe longer than posterior lobe,coxae 5
+3,Melphidippidae,,Melphidippidae,T26,anterior lobe longer than posterior lobe,coxae 6
+4,Cheluridae,,Cheluridae,T41,peduncle greatly expanded,uropod 2
+4,5,,,T41,peduncle not greatly expanded,uropod 2
+5,6,,,T42,outer ramus bearing 1 to 2 giant hooked and articulate spines rami pad shaped,uropod 3
+5,6,,,T42,outer ramus lacking giant hooked occasionally with tiny hooks or denticles and rami not padshape,uropod 3
+6,7,,,T37,elongate,urosomite 1
+6,9,,,T37,not elongate,urosomite 1
+7,Iciliidae,,Iciliidae,T55,peduncle medially broadened,pleonites
+7,Iciliidae,,Iciliidae,T43,not fleshy,telson
+7,Iciliidae,,Iciliidae,T12a,alike simple and very elongate ,gnathopod 1
+7,Iciliidae,,Iciliidae,T13a,alike simple and very elongate ,gnathopod 2
+7,8,,,T55,peduncle slender,pleonites
+7,8,,,T43,fleshy,telson
+7,8,,,T12a,diverse one or with gnathopod 2 be subchelate,gnathopod 1
+7,8,,,T13a,diverse one or with gnathopod 2 be subchelate,gnathopod 2
+8,Podoceridae,,Podoceridae,T42,0 to 1 ramus,uropod 3
+8,Podoceridae,,Podoceridae,T01c,peduncular article very elongate,antenna 1
+8,Eusiridae,,Eusiridae,T42,2 rami,uropod 3
+8,Eusiridae,,Eusiridae,T01c,peduncular articles of antenna 1 very elongate,antenna 1
+9,Corophioidea,Corophioidea,,T43,thick and fleshy,telson
+9,Corophioidea,Corophioidea,,T54,glandular,pereopods
+9,10,,,T43,thin,telson
+9,10,,,T54,not glandular,pereopods
+10,Synopiidae,,Synopiidae,T12a,feeble subequal article 3,gnathopod 1
+10,Synopiidae,,Synopiidae,T13a,feeble subequal article 3,gnathopod 2
+10,Synopiidae,,Synopiidae,T07,palp vestigial,mandibular
+10,Synopiidae,,Synopiidae,T01c,flagellum article 1 elongate,antenna 1
+10,Synopiidae,,Synopiidae,T10,plates foliaceous,maxilliped
+10,11,,,T12a,feeble subequal,gnathopod 1
+10,11,,,T13a,feeble subequal,gnathopod 2
+10,11,,,T07,palp articles 3 ordinary,mandibular
+10,11,,,T01c,flagellum article 1 not elongate,antenna 1
+10,11,,,T10,plates ordinary,maxilliped
+10,12,,,T12a,strong subchelate,gnathopod 1
+10,12,,,T13a,strong subchelate,gnathopod 2
+10,12,,,T07,palp article 3 palp strong,mandibular
+10,12,,,T01c,flagellum article 1 not elongate,antenna 1
+10,12,,,T10,plates not foliaceous,maxilliped
+11,Iciliidae,,Iciliidae,T47,acuminate,coxae
+11,Eusiridae,,Eusiridae,T47,ordinary,coxae
+12,Gammaridae,Gammaroidea,Gammaridae,T12a,slightly larger than 2,gnathopod 1
+12,13,,,T12a,smaller than or equal to 2,gnathopod 1
+13,Gammaridae,Gammaroidea,Gammaridae,T01f,with 3 more articles,accessory flagellum
+13,Eusiridae,,Eusiridae,T01f,0 to 2 articles,accessory flagellum
