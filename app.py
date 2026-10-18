@@ -189,46 +189,39 @@ if mode == "🔬 Key to Species — ระบุถึงระดับชน�
             )
 
             if sel_seg != "-- เลือก --":
-                # ── ดึง traits ของ segment นั้น ──
                 seg_traits = avail_traits[avail_traits["segment"] == sel_seg][
                     ["trait_id", "character", "description"]
                 ].drop_duplicates("trait_id")
 
-                # สร้าง label แบบ "description (trait_id)"
-                # ลบขั้นตอน character ออก — แสดง trait โดยตรง
+                # รวมทุก trait ของ segment นี้ไว้ใน dropdown เดียว
+                # ใช้ description เป็น label หลัก
                 trait_labels = []
                 trait_map = {}
                 for _, row in seg_traits.iterrows():
-                    desc = str(row["description"]) if pd.notna(row["description"]) else row["character"]
-                    if desc == "nan":
-                        desc = row["character"]
+                    desc = str(row["description"]) if pd.notna(row["description"]) and str(row["description"]) != "nan" else str(row["character"])
                     label = desc
-                    # ถ้า label ซ้ำให้เพิ่ม trait_id กำกับ
-                    if label in trait_map:
-                        label = f"{desc} ({row['trait_id']})"
+                    # ถ้า label ซ้ำเพิ่ม trait_id กำกับ
+                    base = label
+                    count = 1
+                    while label in trait_map:
+                        label = f"{base} [{row['trait_id']}]"
+                        count += 1
                     trait_labels.append(label)
                     trait_map[label] = row["trait_id"]
 
-                                # ถ้ามี trait เดียวใน segment — เลือกอัตโนมัติ ไม่ต้องแสดง dropdown
-                if len(trait_labels) == 1:
-                    sel_trait_label = trait_labels[0]
-                    sel_trait_id = trait_map[sel_trait_label]
-                else:
-                    sel_trait_label = st.selectbox(
-                        "ลักษณะที่จะตรวจ:",
-                        ["-- เลือก --"] + trait_labels,
-                        key=f"trait_{len(selected_traits)}"
-                    )
-                    if sel_trait_label == "-- เลือก --":
-                        st.stop()
+                sel_trait_label = st.selectbox(
+                    "ลักษณะที่จะตรวจสอบ:",
+                    ["-- เลือก --"] + trait_labels,
+                    key=f"trait_{len(selected_traits)}"
+                )
+
+                if sel_trait_label != "-- เลือก --":
                     sel_trait_id = trait_map[sel_trait_label]
 
-                    # ── เลือก state value ──
                     values = sorted(
                         avail[avail["trait_id"] == sel_trait_id]["trait_value"].dropna().unique()
                     )
 
-                    # แสดงจำนวน species ต่อ option
                     value_labels = []
                     for v in values:
                         n = len(avail[
@@ -245,7 +238,6 @@ if mode == "🔬 Key to Species — ระบุถึงระดับชน�
 
                     if sel_val_label != "-- เลือก --":
                         sel_val = values[value_labels.index(sel_val_label)]
-
                         if st.button("✅ ยืนยันการเลือก", use_container_width=True):
                             st.session_state.selected_traits[sel_trait_id] = sel_val
                             st.session_state.step_history.append(
