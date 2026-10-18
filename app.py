@@ -209,13 +209,18 @@ if mode == "🔬 Key to Species — ระบุถึงระดับชน�
                     trait_labels.append(label)
                     trait_map[label] = row["trait_id"]
 
-                sel_trait_label = st.selectbox(
-                    "ลักษณะที่จะตรวจ:",
-                    ["-- เลือก --"] + trait_labels,
-                    key=f"trait_{len(selected_traits)}"
-                )
-
-                if sel_trait_label != "-- เลือก --":
+                                # ถ้ามี trait เดียวใน segment — เลือกอัตโนมัติ ไม่ต้องแสดง dropdown
+                if len(trait_labels) == 1:
+                    sel_trait_label = trait_labels[0]
+                    sel_trait_id = trait_map[sel_trait_label]
+                else:
+                    sel_trait_label = st.selectbox(
+                        "ลักษณะที่จะตรวจ:",
+                        ["-- เลือก --"] + trait_labels,
+                        key=f"trait_{len(selected_traits)}"
+                    )
+                    if sel_trait_label == "-- เลือก --":
+                        st.stop()
                     sel_trait_id = trait_map[sel_trait_label]
 
                     # ── เลือก state value ──
