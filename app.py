@@ -198,14 +198,14 @@ if mode == "🔬 Key to Species — ระบุถึงระดับชน�
                 trait_labels = []
                 trait_map = {}
                 for _, row in seg_traits.iterrows():
-                    desc = str(row["description"]) if pd.notna(row["description"]) and str(row["description"]) != "nan" else str(row["character"])
-                    label = desc
+                    # ใช้ character + state_options เป็น label
+                    char = str(row["character"]) if pd.notna(row["character"]) else ""
+                    states = str(row["state_options"]) if pd.notna(row["state_options"]) else ""
+                    label = f"{char}: {states}" if states else char
                     # ถ้า label ซ้ำเพิ่ม trait_id กำกับ
                     base = label
-                    count = 1
                     while label in trait_map:
                         label = f"{base} [{row['trait_id']}]"
-                        count += 1
                     trait_labels.append(label)
                     trait_map[label] = row["trait_id"]
 
