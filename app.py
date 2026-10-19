@@ -157,14 +157,20 @@ if mode == "🔬 Key to Species — ระบุถึงระดับชน�
 
         # ── เลือก segment ──
         seg_order = [
-            "antenna 1", "accessory flagellum", "antenna 2", "peduncle",
-            "compound eye", "rostrum", "antennal sinus notch",
-            "mandible", "maxilla 1", "maxilla 2", "maxilliped",
+            "antenna 1", "accessory flagellum", "antenna 2",
+            "peduncle", "peduncle vs antenna1", "antennae",
+            "compound eye", "rostrum", "antennal sinus notch", "head",
+            "mouthpart", "upper lip", "lower lip", "labium",
+            "mandible", "mandibular",
+            "maxilla 1", "maxilla 2", "maxiliped",
             "gnathopod 1", "gnathopod 2",
-            "pereopod 1", "pereopod 2", "pereopod 7",
-            "basis", "carpus", "merus", "propodus", "dactyl",
-            "coxa 1", "coxa 2", "coxa 6",
-            "epimera 1", "epimera 3",
+            "pereopod 1", "pereopod 2", "pereopod 3",
+            "pereopod 4", "pereopod 5", "pereopod 6", "pereopod 7",
+            "basis", "ischium", "carpus", "merus", "propodus", "dactyl",
+            "coxa 1", "coxa 2", "coxa 3", "coxa 4",
+            "coxa 5", "coxa 6", "coxa 7",
+            "body", "pereonites", "gills", "oostegites",
+            "epimera 1", "epimera 2", "epimera 3",
             "pleon 1", "pleon 2", "pleon 3",
             "urosome 1", "urosome 2", "urosome 3",
             "uropod 1", "uropod 2", "uropod 3", "telson"
