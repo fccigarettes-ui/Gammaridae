@@ -155,101 +155,128 @@ if mode == "🔬 Key to Species — ระบุถึงระดับชน�
         used_traits = set(selected_traits.keys())
         avail_traits = avail[~avail["trait_id"].isin(used_traits)]
 
-        # ── เลือก segment ──
-        seg_order = [
-            "antenna 1", "accessory flagellum", "antenna 2",
-            "peduncle", "peduncle vs antenna1", "antennae",
-            "compound eye", "rostrum", "antennal sinus notch", "head",
-            "mouthpart", "upper lip", "lower lip", "labium",
-            "mandible", "mandibular",
-            "maxilla 1", "maxilla 2", "maxiliped",
-            "gnathopod 1", "gnathopod 2",
-            "pereopod 1", "pereopod 2", "pereopod 3",
-            "pereopod 4", "pereopod 5", "pereopod 6", "pereopod 7",
-            "basis", "ischium", "carpus", "merus", "propodus", "dactyl",
-            "coxa 1", "coxa 2", "coxa 3", "coxa 4",
-            "coxa 5", "coxa 6", "coxa 7",
-            "body", "pereonites", "gills", "oostegites",
-            "epimera 1", "epimera 2", "epimera 3",
-            "pleon 1", "pleon 2", "pleon 3",
-            "urosome 1", "urosome 2", "urosome 3",
-            "uropod 1", "uropod 2", "uropod 3", "telson"
-        ]
+                # ── จัดกลุ่ม segment ──
+        seg_groups = {
+            "🦐 Head & Antennae": [
+                "antenna 1", "accessory flagellum", "antenna 2",
+                "peduncle", "peduncle vs antenna1", "antennae",
+                "compound eye", "rostrum", "antennal sinus notch", "head"
+            ],
+            "👄 Mouthparts": [
+                "mouthpart", "upper lip", "lower lip", "labium",
+                "mandible", "mandibular",
+                "maxilla 1", "maxilla 2", "maxiliped"
+            ],
+            "🦾 Gnathopods": [
+                "gnathopod 1", "gnathopod 2"
+            ],
+            "🦵 Pereopods": [
+                "pereopod 1", "pereopod 2", "pereopod 3",
+                "pereopod 4", "pereopod 5", "pereopod 6", "pereopod 7", "pereopods"
+            ],
+            "🔩 Limb segments": [
+                "basis", "ischium", "carpus", "merus", "propodus", "dactyl", "proximal"
+            ],
+            "📦 Coxae": [
+                "coxa 1", "coxa 2", "coxa 3", "coxa 4",
+                "coxa 5", "coxa 6", "coxa 7", "coxae"
+            ],
+            "🫁 Body & Gills": [
+                "body", "pereonites", "gills", "oostegites"
+            ],
+            "🔵 Epimera & Pleon": [
+                "epimera 1", "epimera 2", "epimera 3",
+                "pleon 1", "pleon 2", "pleon 3", "pleonites",
+                "pleopod 1", "pleopod 2", "pleopod 3", "pleopods"
+            ],
+            "🔚 Urosome & Uropods": [
+                "urosome 1", "urosome 2", "urosome 3", "urosomites",
+                "uropod 1", "uropod 2", "uropod 3", "telson"
+            ]
+        }
 
-        avail_segs = avail_traits["segment"].dropna().unique()
-        # เรียงตาม seg_order ก่อน ที่เหลือต่อท้าย
-        ordered_segs = [s for s in seg_order if s in avail_segs]
-        remaining_segs = [s for s in avail_segs if s not in seg_order]
-        segments = ordered_segs + sorted(remaining_segs)
+        # กรองเฉพาะกลุ่มที่มี segment อยู่ใน candidates จริงๆ
+        avail_segs = set(avail_traits["segment"].dropna().unique())
+        active_groups = {
+            grp: [s for s in segs if s in avail_segs]
+            for grp, segs in seg_groups.items()
+        }
+        active_groups = {g: s for g, s in active_groups.items() if s}
 
-        if not segments:
+        if not active_groups:
             st.info(f"🔍 ไม่มี trait เพิ่มเติมแล้ว — พบ **{len(candidates)} species** ที่เป็นไปได้")
             result_df = get_result_df(merged, candidates)
             st.dataframe(result_df, use_container_width=True)
         else:
-            st.markdown(f"**เลือก Segment ที่จะตรวจสอบ** (เหลือ {len(candidates)} species):")
-            sel_seg = st.selectbox(
-                "Segment:",
-                ["-- เลือก --"] + segments,
-                key=f"seg_{len(selected_traits)}"
+            st.markdown(f"**เลือกกลุ่ม Segment** (เหลือ {len(candidates)} species):")
+
+            sel_group = st.selectbox(
+                "กลุ่ม:",
+                ["-- เลือก --"] + list(active_groups.keys()),
+                key=f"grp_{len(selected_traits)}"
             )
 
-            if sel_seg != "-- เลือก --":
-                seg_traits = avail_traits[avail_traits["segment"] == sel_seg][
-                    ["trait_id", "character", "description", "state_options"]
-                ].drop_duplicates("trait_id")
+            if sel_group != "-- เลือก --":
+                group_segs = active_groups[sel_group]
 
-                # รวมทุก trait ของ segment นี้ไว้ใน dropdown เดียว
-                # ใช้ description เป็น label หลัก
-                trait_labels = []
-                trait_map = {}
-                for _, row in seg_traits.iterrows():
-                    # ใช้ character + state_options เป็น label
-                    char = str(row["character"]) if pd.notna(row["character"]) else ""
-                    states = str(row["state_options"]) if pd.notna(row["state_options"]) else ""
-                    label = f"{char}: {states}" if states else char
-                    # ถ้า label ซ้ำเพิ่ม trait_id กำกับ
-                    base = label
-                    while label in trait_map:
-                        label = f"{base} [{row['trait_id']}]"
-                    trait_labels.append(label)
-                    trait_map[label] = row["trait_id"]
-
-                sel_trait_label = st.selectbox(
-                    "ลักษณะที่จะตรวจสอบ:",
-                    ["-- เลือก --"] + trait_labels,
-                    key=f"trait_{len(selected_traits)}"
+                sel_seg = st.selectbox(
+                    "Segment:",
+                    ["-- เลือก --"] + group_segs,
+                    key=f"seg_{len(selected_traits)}"
                 )
 
-                if sel_trait_label != "-- เลือก --":
-                    sel_trait_id = trait_map[sel_trait_label]
+                if sel_seg != "-- เลือก --":
+                    seg_traits = avail_traits[avail_traits["segment"] == sel_seg][
+                        ["trait_id", "character", "description", "state_options"]
+                    ].drop_duplicates("trait_id")
 
-                    values = sorted(
-                        avail[avail["trait_id"] == sel_trait_id]["trait_value"].dropna().unique()
+                    trait_labels = []
+                    trait_map = {}
+                    for _, row in seg_traits.iterrows():
+                        char = str(row["character"]) if pd.notna(row["character"]) else ""
+                        states = str(row["state_options"]) if pd.notna(row["state_options"]) else ""
+                        label = f"{char}: {states}" if states else char
+                        base = label
+                        while label in trait_map:
+                            label = f"{base} [{row['trait_id']}]"
+                        trait_labels.append(label)
+                        trait_map[label] = row["trait_id"]
+
+                    sel_trait_label = st.selectbox(
+                        "ลักษณะที่จะตรวจสอบ:",
+                        ["-- เลือก --"] + trait_labels,
+                        key=f"trait_{len(selected_traits)}"
                     )
 
-                    value_labels = []
-                    for v in values:
-                        n = len(avail[
-                            (avail["trait_id"] == sel_trait_id) &
-                            (avail["trait_value"] == v)
-                        ]["species_id"].unique())
-                        value_labels.append(f"{v}  ({n} species)")
+                    if sel_trait_label != "-- เลือก --":
+                        sel_trait_id = trait_map[sel_trait_label]
 
-                    sel_val_label = st.selectbox(
-                        "ลักษณะที่พบ:",
-                        ["-- เลือก --"] + value_labels,
-                        key=f"val_{len(selected_traits)}"
-                    )
+                        values = sorted(
+                            avail[avail["trait_id"] == sel_trait_id]["trait_value"].dropna().unique()
+                        )
 
-                    if sel_val_label != "-- เลือก --":
-                        sel_val = values[value_labels.index(sel_val_label)]
-                        if st.button("✅ ยืนยันการเลือก", use_container_width=True):
-                            st.session_state.selected_traits[sel_trait_id] = sel_val
-                            st.session_state.step_history.append(
-                                (sel_trait_id, sel_val, sel_seg, sel_trait_label)
-                            )
-                            st.rerun()
+                        value_labels = []
+                        for v in values:
+                            n = len(avail[
+                                (avail["trait_id"] == sel_trait_id) &
+                                (avail["trait_value"] == v)
+                            ]["species_id"].unique())
+                            value_labels.append(f"{v}  ({n} species)")
+
+                        sel_val_label = st.selectbox(
+                            "ลักษณะที่พบ:",
+                            ["-- เลือก --"] + value_labels,
+                            key=f"val_{len(selected_traits)}"
+                        )
+
+                        if sel_val_label != "-- เลือก --":
+                            sel_val = values[value_labels.index(sel_val_label)]
+                            if st.button("✅ ยืนยันการเลือก", use_container_width=True):
+                                st.session_state.selected_traits[sel_trait_id] = sel_val
+                                st.session_state.step_history.append(
+                                    (sel_trait_id, sel_val, sel_seg, sel_trait_label)
+                                )
+                                st.rerun()
 
         # ── แสดงผลลัพธ์ปัจจุบันเสมอ (ถึงแม้จะยังมีหลาย species) ──
         if selected_traits and len(candidates) > 1:
