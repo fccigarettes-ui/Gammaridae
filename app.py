@@ -190,7 +190,7 @@ if mode == "🔬 Key to Species — ระบุถึงระดับชน�
 
             if sel_seg != "-- เลือก --":
                 seg_traits = avail_traits[avail_traits["segment"] == sel_seg][
-                    ["trait_id", "character", "description"]
+                    ["trait_id", "character", "description", "state_options"]
                 ].drop_duplicates("trait_id")
 
                 # รวมทุก trait ของ segment นี้ไว้ใน dropdown เดียว
