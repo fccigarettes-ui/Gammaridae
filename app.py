@@ -77,8 +77,8 @@ def filter_family(family_data, selected_traits):
 
 
 # ── UI หลัก ───────────────────────────────────────────────────────
-st.title("🦐 Amphipoda Taxonomic Key")
-st.caption("Thai Coastal & Estuarine Amphipoda — Interactive Identification Tool")
+st.title("🦐 Thai Amphipoda Taxonomic Key")
+st.caption("Thai Coastal & Estuarine Amphipoda — Interactive Identification Tool กำลังพัฒนาโดยธชาพัฒน์")
 
 mode = st.radio(
     "**เลือกจุดเริ่มต้น:**",
@@ -296,47 +296,187 @@ else:
     try:
         family_data = load_family_data()
 
-        segments_fam = sorted(family_data["observation_note"].dropna().unique())
-        sel_seg_fam = st.selectbox(
-            "**1. เลือก Segment/Appendage ที่สังเกต:**",
-            ["-- เลือก --"] + list(segments_fam),
-            key="fam_seg"
-        )
+        # ── init session state ──
+        if "fam_selected_traits" not in st.session_state:
+            st.session_state.fam_selected_traits = {}
+        if "fam_step_history" not in st.session_state:
+            st.session_state.fam_step_history = []
 
-        if sel_seg_fam != "-- เลือก --":
-            seg_fam_traits = family_data[family_data["observation_note"] == sel_seg_fam][
-                ["trait_id", "trait_value"]
-            ].drop_duplicates("trait_id")
+        fam_selected = st.session_state.fam_selected_traits
 
-            # แสดง trait_value แทน trait_id
-            trait_descs = seg_fam_traits["trait_id"].tolist()
-            sel_trait_fam = st.selectbox(
-                "**2. เลือกลักษณะที่ตรวจสอบ:**",
-                ["-- เลือก --"] + trait_descs,
-                key="fam_trait"
-            )
+        # ── คำนวณ candidates ──
+        fam_candidates = filter_family(family_data, fam_selected)
 
-            if sel_trait_fam != "-- เลือก --":
-                values_fam = sorted(
-                    family_data[family_data["trait_id"] == sel_trait_fam]["trait_value"].dropna().unique()
+        # ── Header ──
+        col1, col2 = st.columns([3, 1])
+        with col1:
+            st.write(f"ฐานข้อมูล: **{family_data['family'].nunique()} families** | เหลือ: **{len(fam_candidates)} families**")
+        with col2:
+            if st.button("🔄 เริ่มใหม่", key="fam_reset", use_container_width=True):
+                st.session_state.fam_selected_traits = {}
+                st.session_state.fam_step_history = []
+                st.rerun()
+
+        # ── แสดง traits ที่เลือกไปแล้ว ──
+        if st.session_state.fam_step_history:
+            st.markdown("**ลักษณะที่เลือกไปแล้ว:**")
+            for i, (tid, val, seg, desc) in enumerate(st.session_state.fam_step_history):
+                col_h, col_del = st.columns([5, 1])
+                with col_h:
+                    st.markdown(f"&nbsp;&nbsp;{i+1}. **{seg}** — {desc}: `{val}`")
+                with col_del:
+                    if st.button("✕", key=f"fam_del_{i}"):
+                        st.session_state.fam_step_history = st.session_state.fam_step_history[:i]
+                        st.session_state.fam_selected_traits = {
+                            t: v for t, v, _, _ in st.session_state.fam_step_history[:i]
+                        }
+                        st.rerun()
+            st.divider()
+
+        # ── ถ้า candidates เหลือ 0 ──
+        if len(fam_candidates) == 0:
+            st.error("⚠️ ไม่พบ Family ที่ตรงกับเงื่อนไข — กด 'เริ่มใหม่' หรือลบลักษณะที่เลือกผิดออก")
+
+        # ── ถ้า candidates เหลือ 1 ──
+        elif len(fam_candidates) == 1:
+            st.success(f"✅ ระบุได้ **1 Family: {list(fam_candidates)[0]}**")
+            st.info("💡 กลับไปใช้ **Key to Species** เพื่อระบุชนิดต่อ")
+
+        # ── ยังมีหลาย candidates ──
+        else:
+            avail_fam = family_data[family_data["family"].isin(fam_candidates)]
+            used_fam_traits = set(fam_selected.keys())
+            avail_fam_traits = avail_fam[~avail_fam["trait_id"].isin(used_fam_traits)]
+
+            # ── จัดกลุ่ม segment ──
+            seg_groups_fam = {
+                "🦐 Head & Antennae": [
+                    "antenna 1", "accessory flagellum", "antenna 2", "antennae",
+                    "eyes", "rostrum", "head"
+                ],
+                "👄 Mouthparts": [
+                    "mouthpart", "lower lip", "labium",
+                    "mandible", "maxilla 1", "maxilla 2", "maxilliped"
+                ],
+                "🦾 Gnathopods": [
+                    "gnathopod 1", "gnathopod 1 carpus", "gnathopod 1 propodus",
+                    "gnathopod 2", "gnathopod 2 carpus", "gnathopod 2 propodus"
+                ],
+                "🦵 Pereopods": [
+                    "pereopod 3", "pereopod 3 merus",
+                    "pereopod 4", "pereopod 4 merus",
+                    "pereopod 5", "pereopod 5 basis", "pereopod 5 merus",
+                    "pereopod 6", "pereopod 6 merus",
+                    "pereopod 7", "pereopod 7 basis", "pereopod 7 dactyl"
+                ],
+                "📦 Coxae": [
+                    "coxa 1", "coxa 2", "coxa 3", "coxa 4",
+                    "coxa 5", "coxa 6", "coxae"
+                ],
+                "🫁 Body": [
+                    "body", "pereonite", "pleonite", "pleon 3"
+                ],
+                "🔚 Urosome & Uropods": [
+                    "urosome", "urosome 1", "urosome 2", "urosome 3",
+                    "uropod 1", "uropod 2", "uropod 3", "telson"
+                ]
+            }
+
+            avail_fam_segs = set(avail_fam_traits["observation_note"].dropna().unique())
+            active_fam_groups = {
+                grp: [s for s in segs if s in avail_fam_segs]
+                for grp, segs in seg_groups_fam.items()
+            }
+            active_fam_groups = {g: s for g, s in active_fam_groups.items() if s}
+
+            # segment ที่ไม่อยู่ในกลุ่มไหน
+            all_grouped = {s for segs in seg_groups_fam.values() for s in segs}
+            ungrouped = sorted(avail_fam_segs - all_grouped)
+            if ungrouped:
+                active_fam_groups["📋 อื่นๆ"] = ungrouped
+
+            if not active_fam_groups:
+                st.info(f"🔍 ไม่มี trait เพิ่มเติม — พบ **{len(fam_candidates)} families**")
+            else:
+                st.markdown(f"**เลือกกลุ่ม Segment** (เหลือ {len(fam_candidates)} families):")
+
+                sel_fam_group = st.selectbox(
+                    "กลุ่ม:",
+                    ["-- เลือก --"] + list(active_fam_groups.keys()),
+                    key=f"fam_grp_{len(fam_selected)}"
                 )
-                sel_val_fam = st.selectbox(
-                    "**3. เลือกลักษณะ:**",
-                    ["-- เลือก --"] + list(values_fam),
-                    key="fam_val"
-                )
 
-                if sel_val_fam != "-- เลือก --":
-                    result_fam = filter_family(family_data, {sel_trait_fam: sel_val_fam})
+                if sel_fam_group != "-- เลือก --":
+                    fam_group_segs = active_fam_groups[sel_fam_group]
 
-                    st.divider()
-                    if not result_fam:
-                        st.warning("⚠️ ไม่พบ Family ที่ตรงกับลักษณะนี้")
-                    else:
-                        st.success(f"🔍 Family ที่เป็นไปได้: **{len(result_fam)} families**")
-                        for fam in result_fam:
-                            st.write(f"• {fam}")
-                        st.info("💡 เมื่อทราบ Family แล้ว กลับไปใช้ **Key to Species** เพื่อระบุชนิดต่อ")
+                    sel_fam_seg = st.selectbox(
+                        "Segment:",
+                        ["-- เลือก --"] + fam_group_segs,
+                        key=f"fam_seg_{len(fam_selected)}"
+                    )
+
+                    if sel_fam_seg != "-- เลือก --":
+                        fam_seg_traits = avail_fam_traits[
+                            avail_fam_traits["observation_note"] == sel_fam_seg
+                        ][["trait_id", "trait_value"]].drop_duplicates("trait_id")
+
+                        # ใช้ trait_value แรกเป็น label แทน trait_id
+                        fam_trait_labels = []
+                        fam_trait_map = {}
+                        for _, row in fam_seg_traits.iterrows():
+                            vals = family_data[
+                                family_data["trait_id"] == row["trait_id"]
+                            ]["trait_value"].dropna().unique()
+                            state_preview = ", ".join(sorted(vals)[:3])
+                            label = f"{state_preview}..."  if len(vals) > 3 else state_preview
+                            base = label
+                            while label in fam_trait_map:
+                                label = f"{base} [{row['trait_id']}]"
+                            fam_trait_labels.append(label)
+                            fam_trait_map[label] = row["trait_id"]
+
+                        sel_fam_trait_label = st.selectbox(
+                            "ลักษณะที่จะตรวจสอบ:",
+                            ["-- เลือก --"] + fam_trait_labels,
+                            key=f"fam_trait_{len(fam_selected)}"
+                        )
+
+                        if sel_fam_trait_label != "-- เลือก --":
+                            sel_fam_trait_id = fam_trait_map[sel_fam_trait_label]
+
+                            fam_values = sorted(
+                                avail_fam[avail_fam["trait_id"] == sel_fam_trait_id]["trait_value"].dropna().unique()
+                            )
+                            fam_value_labels = []
+                            for v in fam_values:
+                                n = len(avail_fam[
+                                    (avail_fam["trait_id"] == sel_fam_trait_id) &
+                                    (avail_fam["trait_value"] == v)
+                                ]["family"].unique())
+                                fam_value_labels.append(f"{v}  ({n} families)")
+
+                            sel_fam_val_label = st.selectbox(
+                                "ลักษณะที่พบ:",
+                                ["-- เลือก --"] + fam_value_labels,
+                                key=f"fam_val_{len(fam_selected)}"
+                            )
+
+                            if sel_fam_val_label != "-- เลือก --":
+                                sel_fam_val = fam_values[fam_value_labels.index(sel_fam_val_label)]
+                                if st.button("✅ ยืนยันการเลือก", key="fam_confirm", use_container_width=True):
+                                    st.session_state.fam_selected_traits[sel_fam_trait_id] = sel_fam_val
+                                    st.session_state.fam_step_history.append(
+                                        (sel_fam_trait_id, sel_fam_val, sel_fam_seg, sel_fam_trait_label)
+                                    )
+                                    st.rerun()
+
+            # ── แสดงผลลัพธ์ปัจจุบัน ──
+            if fam_selected and len(fam_candidates) > 1:
+                st.divider()
+                st.info(f"🔍 ผลลัพธ์ปัจจุบัน: **{len(fam_candidates)} families** — เลือก trait เพิ่มเพื่อแยกให้ชัดขึ้น")
+                for fam in sorted(fam_candidates):
+                    st.write(f"• {fam}")
+                st.info("💡 เมื่อทราบ Family แล้ว กลับไปใช้ **Key to Species** เพื่อระบุชนิดต่อ")
 
     except Exception as e:
         st.error(f"ไม่สามารถโหลด Key to Family ได้: {e}")
