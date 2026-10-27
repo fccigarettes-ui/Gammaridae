@@ -92,7 +92,10 @@ def filter_family(family_data, selected_traits):
 
 def show_species_expander(species_id, genus, sci_name, author, family, order, merged, info_df):
     """แสดง expander ข้อมูล species — กดชื่อไหนขยาย ที่เหลือหุบ"""
-    label = f"*{genus} {sci_name}* {author}"
+    label = f"{genus} {sci_name}"  # หัวข้อ expander เล็กลง
+    # ข้างในใช้
+    st.markdown(f"## *{genus} {sci_name}*")  # ปรับ ## หรือ ### ได้
+    st.markdown(f"*{author}*")
     with st.expander(label, expanded=(st.session_state.get("open_sp") == species_id)):
         # ── toggle: กดซ้ำ = หุบ, กดใหม่ = เปิด ──
         if st.session_state.get("open_sp") != species_id:
@@ -107,6 +110,14 @@ def show_species_expander(species_id, genus, sci_name, author, family, order, me
         row = info_df[info_df["species_id"] == species_id]
         if not row.empty:
             r = row.iloc[0]
+
+            # ── รูปภาพ ──
+            img_path = r.get("image_main", None)
+            if img_path and pd.notna(img_path) and str(img_path) != "nan":
+                try:
+                    st.image(img_path, use_container_width=True)
+                except:
+                    st.caption("⚠️ ไม่พบไฟล์รูป")
 
             # Diagnosis
             if pd.notna(r.get("Diagnosis", None)) and str(r["Diagnosis"]) != "nan":
