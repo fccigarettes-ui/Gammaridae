@@ -1,5 +1,21 @@
 import pandas as pd
 import streamlit as st
+from pathlib import Path
+
+BASE_DIR = Path(__file__).parent
+
+def find_image(rel_path):
+    """หาไฟล์รูป: ล้าง space, แปลง \\ เป็น /, ไม่สนตัวพิมพ์ใหญ่/เล็ก"""
+    p = str(rel_path).strip().replace("\\", "/")
+    full = BASE_DIR / p
+    if full.exists():
+        return full
+    folder = full.parent
+    if folder.exists():
+        for f in folder.iterdir():
+            if f.name.lower() == full.name.lower():
+                return f
+    return None
 
 st.set_page_config(page_title="Amphipoda Taxonomic Key", layout="wide")
 
@@ -114,10 +130,11 @@ def show_species_expander(species_id, genus, sci_name, author, family, order, me
             # ── รูปภาพ ──
             img_path = r.get("image_main", None)
             if img_path and pd.notna(img_path) and str(img_path) != "nan":
-                try:
-                    st.image(img_path, use_container_width=True)
-                except:
-                    st.caption("⚠️ ไม่พบไฟล์รูป")
+                found = find_image(img_path)
+                if found:
+                    st.image(str(found), use_container_width=True)
+                else:
+                    st.caption(f"⚠️ ไม่พบไฟล์: {img_path}")
 
             # Diagnosis
             if pd.notna(r.get("Diagnosis", None)) and str(r["Diagnosis"]) != "nan":
