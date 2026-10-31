@@ -1,4 +1,4 @@
-﻿trait id,segment,character,state options,description
+﻿trait id,segment,character,state_options,description
 T01a,antenna 1,length,"elongate, short, moderate",
 T01b,antenna 1,width,"narrowing distally, broadening distally, subequal",
 T01c,antenna 1,shape,"proximal spine, without spine, ventradistal without spine, strong spine, strong basis, proximal spine, devious, strongly setose, triangle, shorter than relative species, longer than relative species, oviod lamella appendix peduncle",
