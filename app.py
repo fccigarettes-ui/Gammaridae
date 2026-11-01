@@ -18,6 +18,18 @@ def find_image(rel_path):
     return None
 
 st.set_page_config(page_title="Amphipoda Taxonomic Key", layout="wide")
+st.markdown("""
+<style>
+[class*="st-key-sp_btn_"] button,
+[class*="st-key-sp_btn_"] button > div,
+[class*="st-key-sp_btn_"] button [data-testid="stMarkdownContainer"],
+[class*="st-key-sp_btn_"] button p {
+    justify-content: flex-start !important;
+    text-align: left !important;
+    width: 100%;
+}
+</style>
+""", unsafe_allow_html=True)
 
 # ── โหลดข้อมูล ─────────────────────────────────────────────────────
 @st.cache_data
