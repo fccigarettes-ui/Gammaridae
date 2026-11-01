@@ -17,7 +17,7 @@ def find_image(rel_path):
                 return f
     return None
 
-st.set_page_config(page_title="Amphipoda Taxonomic Key", layout="wide")
+st.set_page_config(page_title="Amphidex — Thai Amphipoda Key", page_icon="🦐", layout="wide")
 st.markdown("""
 <style>
 [class*="st-key-sp_btn_"] button,
@@ -27,6 +27,23 @@ st.markdown("""
     justify-content: flex-start !important;
     text-align: left !important;
     width: 100%;
+}
+
+/* ── Amphidex brand (ปุ่มโลโก้ซ้ายบน) ── */
+[class*="st-key-brand_btn"] button {
+    background: none !important; border: none !important; box-shadow: none !important;
+    padding: 0 !important; justify-content: flex-start !important;
+}
+[class*="st-key-brand_btn"] button p {
+    font-size: 2rem !important; font-weight: 800 !important;
+    color: #0E7C86 !important; text-align: left !important; letter-spacing: -0.5px;
+}
+[class*="st-key-brand_btn"] button:hover p { color: #0A5A62 !important; }
+/* ── ที่ว่างด้านบน/ล่างของ card ── */
+.noimg {
+    background: #EEF4F5; border-radius: 12px; height: 140px;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; color: #7A9A9E; font-size: 0.85rem; margin-bottom: 0.5rem;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -118,20 +135,19 @@ def filter_family(family_data, selected_traits):
             break
     return sorted(candidates)
 
-def show_species_expander(species_id, genus, sci_name, author, family, order,
-                          merged, info_df, default_open=False):
-    """กดชื่อ → เปิดรายละเอียดใต้ชื่อ | กดชื่ออื่น → อันเก่าหุบ | กดซ้ำ → หุบ"""
-    is_open = default_open or (st.session_state.get("open_sp") == species_id)
-    arrow = "▼" if is_open else "▶"
+HOME = "🏠 Home"
+SPECIES = "🔬 Key to Species"
+FAMILY = "📂 Key to Family"
 
-    if st.button(f"{arrow}  *{genus} {sci_name}* {author}",
-                 key=f"sp_btn_{species_id}", use_container_width=True):
-        st.session_state["open_sp"] = None if is_open else species_id
-        st.rerun()
 
-    if not is_open:
-        return
+def add_viewed(species_id, limit=12):
+    """จำชนิดที่เปิดดู (ล่าสุดอยู่หน้าสุด) — เก็บใน session ของผู้ใช้คนนั้นเท่านั้น"""
+    v = [x for x in st.session_state.get("viewed", []) if x != species_id]
+    st.session_state["viewed"] = [species_id] + v[:limit - 1]
 
+
+def render_species_body(species_id, genus, sci_name, author, family, order,
+                        merged, info_df):
     with st.container(border=True):
         st.markdown(f"**Order:** {order} | **Family:** {family} | **Genus:** *{genus}*")
         st.divider()
@@ -187,22 +203,211 @@ def show_species_expander(species_id, genus, sci_name, author, family, order,
             st.caption("ยังไม่มีข้อมูลเพิ่มเติม")
 
 
-# ── UI หลัก ────────────────────────────────────────────────────────
-st.title("🦐 Thai Amphipoda Taxonomic Key")
-st.caption("Thai Coastal & Estuarine Amphipoda — Interactive Identification Tool กำลังพัฒนาโดยธชาพัฒน์")
 
-mode = st.radio(
-    "**เลือกจุดเริ่มต้น:**",
-    ["🔬 Key to Species — ระบุถึงระดับชนิด",
-     "📂 Key to Family — ยังไม่ทราบ Family เริ่มจากตรงนี้"],
-    horizontal=True
-)
+def show_species_expander(species_id, genus, sci_name, author, family, order,
+                          merged, info_df, default_open=False):
+    """กดชื่อ → เปิดรายละเอียดใต้ชื่อ | กดชื่ออื่น → อันเก่าหุบ | กดซ้ำ → หุบ"""
+    is_open = default_open or (st.session_state.get("open_sp") == species_id)
+    arrow = "▼" if is_open else "▶"
+
+    if st.button(f"{arrow}  *{genus} {sci_name}* {author}",
+                 key=f"sp_btn_{species_id}", use_container_width=True):
+        st.session_state["open_sp"] = None if is_open else species_id
+        st.rerun()
+
+    if not is_open:
+        return
+
+    add_viewed(species_id)
+    render_species_body(species_id, genus, sci_name, author, family, order,
+                        merged, info_df)
+
+
+# ══════════════════════════════════════════════════════════════════
+# HOME / SEARCH helpers
+# ══════════════════════════════════════════════════════════════════
+@st.cache_data
+def load_species_list():
+    sp = pd.read_csv("species.csv")
+    sp = sp.rename(columns={"species id": "species_id", "Species": "scientific_name"})
+    for c in ["Genus", "scientific_name", "Author", "Family", "Order"]:
+        if c not in sp.columns:
+            sp[c] = ""
+        sp[c] = sp[c].fillna("").astype(str)
+    return sp[["species_id", "Genus", "scientific_name", "Author", "Family", "Order"]]
+
+
+def get_image_path(species_id, info_df):
+    row = info_df[info_df["species_id"] == species_id]
+    if row.empty or "image_main" not in row.columns:
+        return None
+    v = row.iloc[0]["image_main"]
+    if pd.isna(v) or str(v).strip() in ("", "nan"):
+        return None
+    return find_image(v)
+
+
+def go_to(m):
+    st.session_state["mode"] = m
+
+
+def open_species(sid):
+    """callback ของปุ่มบน card: เปิดหน้ารายละเอียดใน Home + บันทึกประวัติ"""
+    st.session_state["detail_sp"] = sid
+    st.session_state["q"] = ""
+    st.session_state["mode"] = HOME
+    add_viewed(sid)
+
+
+def close_detail():
+    st.session_state["detail_sp"] = None
+
+
+def clear_search():
+    st.session_state["q"] = ""
+
+
+def search_species(sp_df, q):
+    q = q.strip().lower()
+    hay = (sp_df["Genus"] + " " + sp_df["scientific_name"] + " "
+           + sp_df["Family"] + " " + sp_df["Author"]).str.lower()
+    return sp_df[hay.str.contains(q, regex=False)]
+
+
+def related_species(sp_df, base_ids, exclude_ids, n=8):
+    base = sp_df[sp_df["species_id"].isin(base_ids)]
+    genera, fams = set(base["Genus"]), set(base["Family"])
+    cand = sp_df[~sp_df["species_id"].isin(exclude_ids)
+                 & (sp_df["Genus"].isin(genera) | sp_df["Family"].isin(fams))].copy()
+    cand["_s"] = cand["Genus"].isin(genera).astype(int)
+    return cand.sort_values("_s", ascending=False).head(n).drop(columns="_s")
+
+
+def species_card(r, info_df, prefix):
+    with st.container(border=True):
+        img = get_image_path(r.species_id, info_df)
+        if img:
+            st.image(str(img), use_container_width=True)
+        else:
+            st.markdown('<div class="noimg">🦐<br>ยังไม่มีรูป</div>', unsafe_allow_html=True)
+        st.markdown(f"**_{r.Genus} {r.scientific_name}_**")
+        st.caption(f"{r.Author} · {r.Family}")
+        st.button("ดูรายละเอียด", key=f"{prefix}_{r.species_id}",
+                  on_click=open_species, args=(r.species_id,), use_container_width=True)
+
+
+def render_grid(df, info_df, prefix, ncols=4):
+    rows = list(df.itertuples(index=False))
+    for i in range(0, len(rows), ncols):
+        cols = st.columns(ncols)
+        for col, r in zip(cols, rows[i:i + ncols]):
+            with col:
+                species_card(r, info_df, prefix)
+
+
+def render_home(sp_df, info_df):
+    viewed = [v for v in st.session_state.get("viewed", []) if v in set(sp_df["species_id"])]
+    detail = st.session_state.get("detail_sp")
+
+    # ── หน้ารายละเอียดของชนิดที่กด ──
+    if detail and detail in set(sp_df["species_id"]):
+        r = sp_df[sp_df["species_id"] == detail].iloc[0]
+        st.button("← กลับหน้าแรก", on_click=close_detail, key="back_btn")
+        st.markdown(f"## *{r.Genus} {r.scientific_name}*")
+        st.caption(r.Author)
+        merged = load_species_data()   # โหลดเฉพาะตอนเปิดหน้ารายละเอียด
+        render_species_body(detail, r.Genus, r.scientific_name, r.Author,
+                            r.Family, r.Order, merged, info_df)
+        rel = related_species(sp_df, [detail], [detail])
+        if not rel.empty:
+            st.markdown("### ชนิดที่เกี่ยวข้อง")
+            st.caption("สกุลหรือวงศ์เดียวกัน")
+            render_grid(rel, info_df, "reldetail")
+        return
+
+    # ── Hero ──
+    st.markdown("### ระบุชนิดแอมฟิพอดในประเทศไทย ด้วยการไล่ key ทีละขั้น")
+    st.caption("เลือกลักษณะที่เห็นจากตัวอย่าง แล้วระบบจะค่อยๆ ตัดชนิดที่ไม่ตรงออก — หรือพิมพ์ชื่อที่ช่องค้นหาด้านบน")
+    c1, c2 = st.columns(2)
+    with c1:
+        st.button("📂 ไม่รู้ว่าเป็น Family อะไร — เริ่มจาก Key to Family",
+                  on_click=go_to, args=(FAMILY,), use_container_width=True, type="primary")
+    with c2:
+        st.button("🔬 ระบุถึงระดับชนิด — Key to Species",
+                  on_click=go_to, args=(SPECIES,), use_container_width=True)
+    st.caption(f"ฐานข้อมูลตอนนี้: **{len(sp_df)}** ชนิด · **{sp_df['Genus'].nunique()}** สกุล · "
+               f"**{sp_df['Family'].nunique()}** วงศ์")
+
+    # ── ที่ผู้ใช้เคยกดดู ──
+    if viewed:
+        st.markdown("### ที่คุณดูล่าสุด")
+        recent = sp_df.set_index("species_id").loc[viewed[:8]].reset_index()
+        render_grid(recent, info_df, "recent")
+
+        rel = related_species(sp_df, viewed[:3], viewed)
+        if not rel.empty:
+            st.markdown("### เกี่ยวข้องกับที่คุณดู")
+            st.caption("สกุลหรือวงศ์เดียวกับชนิดที่เปิดดู")
+            render_grid(rel, info_df, "related")
+
+    # ── สำรวจทั้งหมด ──
+    st.markdown("### สำรวจทั้งหมด")
+    fams = sorted(f for f in sp_df["Family"].unique() if f)
+    sel = st.multiselect("กรองตาม Family", fams, placeholder="ทุก Family", key="home_fam")
+    explore = sp_df[sp_df["Family"].isin(sel)] if sel else sp_df
+    explore = explore.assign(_img=[get_image_path(s, info_df) is not None
+                                   for s in explore["species_id"]])
+    explore = explore.sort_values(["_img", "Family", "Genus", "scientific_name"],
+                                  ascending=[False, True, True, True]).drop(columns="_img")
+    render_grid(explore, info_df, "explore")
+
+    st.divider()
+    st.caption("⚠️ Amphidex เป็นเครื่องมือช่วยระบุเบื้องต้น ควรตรวจสอบผลกับเอกสารต้นฉบับ (ลิงก์ Reference/PDF/Plazi ในหน้าแต่ละชนิด) ก่อนนำไปใช้ในงานวิจัย")
+    st.caption("กำลังพัฒนาโดยธชาพัฒน์")
+
+
+# ══════════════════════════════════════════════════════════════════
+# TOP BAR: โลโก้ (ซ้าย) | ค้นหา (กลาง) | เมนู (ขวา)
+# ══════════════════════════════════════════════════════════════════
+if "mode" not in st.session_state:
+    st.session_state["mode"] = HOME
+
+top1, top2, top3 = st.columns([1.3, 3, 3.2], vertical_alignment="center")
+with top1:
+    st.button("🦐 Amphidex", key="brand_btn", on_click=go_to, args=(HOME,))
+with top2:
+    query = st.text_input("ค้นหา", key="q", label_visibility="collapsed",
+                          placeholder="🔍 ค้นหาชื่อชนิด สกุล หรือ Family …")
+with top3:
+    mode = st.radio("เมนู", [HOME, SPECIES, FAMILY], key="mode",
+                    horizontal=True, label_visibility="collapsed")
 st.divider()
+
+_sp_df = load_species_list()
+_info_df = load_species_info()
+
+# ── ถ้ามีคำค้น → แสดงผลค้นหาแทนหน้าปัจจุบัน ──
+if query.strip():
+    results = search_species(_sp_df, query)
+    h1, h2 = st.columns([4, 1], vertical_alignment="center")
+    with h1:
+        st.markdown(f"**ผลการค้นหา “{query.strip()}” — {len(results)} รายการ**")
+    with h2:
+        st.button("✕ ล้างการค้นหา", on_click=clear_search, use_container_width=True)
+    if results.empty:
+        st.info("ไม่พบชื่อที่ตรงกัน ลองพิมพ์สั้นลง เช่น ชื่อสกุล หรือ Family")
+    else:
+        render_grid(results.sort_values(["Family", "Genus", "scientific_name"]),
+                    _info_df, "search")
+    st.stop()
+
+if mode == HOME:
+    render_home(_sp_df, _info_df)
 
 # ══════════════════════════════════════════════════════════════════
 # KEY TO SPECIES
 # ══════════════════════════════════════════════════════════════════
-if mode == "🔬 Key to Species — ระบุถึงระดับชนิด":
+elif mode == SPECIES:
     merged = load_species_data()
     info_df = load_species_info()
 
@@ -372,7 +577,7 @@ if mode == "🔬 Key to Species — ระบุถึงระดับชน�
 # ══════════════════════════════════════════════════════════════════
 # KEY TO FAMILY
 # ══════════════════════════════════════════════════════════════════
-else:
+elif mode == FAMILY:
     st.subheader("Key to Family")
     st.write("เลือกลักษณะที่สังเกตได้เพื่อระบุ Family ก่อน แล้วค่อยไปใช้ Key to Species")
 
