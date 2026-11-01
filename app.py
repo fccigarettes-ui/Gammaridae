@@ -133,9 +133,7 @@ def show_species_expander(species_id, genus, sci_name, author, family, order,
         return
 
     with st.container(border=True):
-        st.markdown(f"**Order:** {order} 
-                     **Family:** {family} 
-                     **Genus:** *{genus}*")
+        st.markdown(f"**Order:** {order} | **Family:** {family} | **Genus:** *{genus}*")
         st.divider()
 
         row = info_df[info_df["species_id"] == species_id]
