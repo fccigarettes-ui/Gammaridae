@@ -106,79 +106,71 @@ def filter_family(family_data, selected_traits):
             break
     return sorted(candidates)
 
-def show_species_expander(species_id, genus, sci_name, author, family, order, merged, info_df):
-    """แสดง expander ข้อมูล species — กดชื่อไหนขยาย ที่เหลือหุบ"""
-    label = f"{genus} {sci_name}"  # หัวข้อ expander เล็กลง
-    # ข้างในใช้
-    st.markdown(f"## *{genus} {sci_name}*")  # ปรับ ## หรือ ### ได้
-    st.markdown(f"*{author}*")
-    with st.expander(label, expanded=(st.session_state.get("open_sp") == species_id)):
-        # ── toggle: กดซ้ำ = หุบ, กดใหม่ = เปิด ──
-        if st.session_state.get("open_sp") != species_id:
-            st.session_state["open_sp"] = species_id
-            st.rerun()
+def show_species_expander(species_id, genus, sci_name, author, family, order,
+                          merged, info_df, default_open=False):
+    """กดชื่อ → เปิดรายละเอียดใต้ชื่อ | กดชื่ออื่น → อันเก่าหุบ | กดซ้ำ → หุบ"""
+    is_open = default_open or (st.session_state.get("open_sp") == species_id)
+    arrow = "▼" if is_open else "▶"
 
-        # ── Taxonomy ──
+    if st.button(f"{arrow}  *{genus} {sci_name}* {author}",
+                 key=f"sp_btn_{species_id}", use_container_width=True):
+        st.session_state["open_sp"] = None if is_open else species_id
+        st.rerun()
+
+    if not is_open:
+        return
+
+    with st.container(border=True):
         st.markdown(f"**Order:** {order} | **Family:** {family} | **Genus:** *{genus}*")
         st.divider()
 
-        # ── ดึงข้อมูลจาก species_info ──
         row = info_df[info_df["species_id"] == species_id]
-        if not row.empty:
-            r = row.iloc[0]
+        if row.empty:
+            st.caption("ยังไม่มีข้อมูลเพิ่มเติม")
+            return
+        r = row.iloc[0]
 
-            # ── รูปภาพ ──
-            img_path = r.get("image_main", None)
-            if img_path and pd.notna(img_path) and str(img_path) != "nan":
-                found = find_image(img_path)
-                if found:
-                    st.image(str(found), use_container_width=True)
-                else:
-                    st.caption(f"⚠️ ไม่พบไฟล์: {img_path}")
+        def has(col):
+            return col in r.index and pd.notna(r[col]) and str(r[col]).strip() not in ("", "nan")
 
-            # Diagnosis
-            if pd.notna(r.get("Diagnosis", None)) and str(r["Diagnosis"]) != "nan":
-                st.markdown("**Diagnosis**")
-                st.markdown(r["Diagnosis"])
+        # รูปภาพ
+        if has("image_main"):
+            found = find_image(r["image_main"])
+            if found:
+                st.image(str(found), use_container_width=True)
+            else:
+                st.caption(f"⚠️ ไม่พบไฟล์: {r['image_main']}")
 
-            # Description
-            if pd.notna(r.get("Description", None)) and str(r["Description"]) != "nan":
-                st.markdown("**Description**")
-                st.markdown(r["Description"])
+        for col in ["Diagnosis", "Description", "Remarks"]:
+            if has(col):
+                st.markdown(f"**{col}**")
+                st.markdown(r[col])
 
-            # Remarks
-            if pd.notna(r.get("Remarks", None)) and str(r["Remarks"]) != "nan":
-                st.markdown("**Remarks**")
-                st.markdown(r["Remarks"])
+        st.divider()
 
+        # Key characters ดึงจาก species_traits อัตโนมัติ
+        sp_traits = merged[merged["species_id"] == species_id][
+            ["segment", "character", "trait_value"]
+        ].drop_duplicates().sort_values("segment")
+        if not sp_traits.empty:
+            st.markdown("**Key Characters**")
+            for _, t in sp_traits.iterrows():
+                st.markdown(f"- **{t['segment']}** — {t['character']}: `{t['trait_value']}`")
             st.divider()
 
-            # Key characters จาก species_traits อัตโนมัติ
-            sp_traits = merged[merged["species_id"] == species_id][
-                ["segment", "character", "trait_value"]
-            ].drop_duplicates().sort_values("segment")
+        if has("Reference"):
+            st.markdown("**Reference**")
+            st.markdown(r["Reference"])
 
-            if not sp_traits.empty:
-                st.markdown("**Key Characters**")
-                for _, t in sp_traits.iterrows():
-                    st.markdown(f"- **{t['segment']}** — {t['character']}: `{t['trait_value']}`")
-                st.divider()
-
-            # Reference + links
-            if pd.notna(r.get("Reference", None)) and str(r["Reference"]) != "nan":
-                st.markdown("**Reference**")
-                st.markdown(r["Reference"])
-
-            # PDF และ Plazi เป็น link
-            link_cols = []
-            if pd.notna(r.get("PDF", None)) and str(r["PDF"]) != "nan":
-                link_cols.append(f"[📄 PDF]({r['PDF']})")
-            if pd.notna(r.get("Plazi", None)) and str(r["Plazi"]) != "nan":
-                link_cols.append(f"[🔬 Plazi]({r['Plazi']})")
-            if pd.notna(r.get("WoRMs", None)) and str(r["WoRMs"]) != "nan":
-                link_cols.append(f"[🌊 WoRMS]({r['WoRMs']})")
-            if link_cols:
-                st.markdown("  |  ".join(link_cols))
+        links = []
+        if has("PDF"):
+            links.append(f"[📄 PDF]({r['PDF']})")
+        if has("Plazi"):
+            links.append(f"[🔬 Plazi]({r['Plazi']})")
+        if has("WoRMs"):
+            links.append(f"[🌊 WoRMS]({r['WoRMs']})")
+        if links:
+            st.markdown("  |  ".join(links))
         else:
             st.caption("ยังไม่มีข้อมูลเพิ่มเติม")
 
