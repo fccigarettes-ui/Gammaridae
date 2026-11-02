@@ -54,13 +54,24 @@ def load_species_data():
     species = pd.read_csv("species.csv")
     traits = pd.read_csv("trait_id.csv")
     species_traits = pd.read_csv("species_traits.csv")
-    traits = traits.rename(columns={"trait id": "trait_id", "state options": "state_options"})
-    species_traits = species_traits.rename(columns={
-        "species id": "species_id", "trait id": "trait_id",
-        "trait value": "trait_value", "observation note": "observation_note"
-    })
+    # ทำชื่อคอลัมน์ให้เป็นรูปเดียวกัน (ตัวเล็ก ไม่มีช่องว่าง) กัน error จากการสะกด/เว้นวรรค
+    def _norm(df):
+        df.columns = (df.columns.astype(str).str.strip().str.lower()
+                      .str.replace(r"\s+", "_", regex=True))
+        return df.loc[:, ~df.columns.str.startswith("unnamed")]
+    traits = _norm(traits)
+    species_traits = _norm(species_traits)
     species = species.rename(columns={"species id": "species_id", "Species": "scientific_name"})
-    species_traits = species_traits.loc[:, ~species_traits.columns.str.startswith("Unnamed")]
+
+    # คอลัมน์ที่ขาดได้ (ไม่จำเป็นต่อการกรอง) → เติมว่างให้ ไม่ให้แอปล้ม
+    for c in ["state_options", "description"]:
+        if c not in traits.columns:
+            traits[c] = None
+    for c in ["trait_id", "segment", "character"]:
+        if c not in traits.columns:
+            raise ValueError(f"trait_id.csv ไม่มีคอลัมน์ '{c}' — คอลัมน์ที่มีอยู่: {list(traits.columns)}")
+    if "observation_note" not in species_traits.columns:
+        species_traits["observation_note"] = None
     traits = traits.dropna(subset=["trait_id"])
     species_traits = species_traits.dropna(subset=["trait_id"])
     merged = species_traits.merge(traits, on="trait_id").merge(species, on="species_id")
