@@ -414,12 +414,6 @@ if "mode" not in st.session_state:
 top1, top2, top3 = st.columns([2, 3, 3.2], vertical_alignment="center")
 with top1:
     st.button("Amphidex", key="brand_btn", on_click=go_to, args=(HOME,))
-    with lg:
-        _logo = find_image("assets/logo.png")
-        if _logo:
-            st.image(str(_logo), width=56)
-    with br:
-        st.button("Amphidex", key="brand_btn", on_click=go_to, args=(HOME,))
 with top2:
     query = st.text_input("ค้นหา", key="q", label_visibility="collapsed",
                           placeholder="🔍 ค้นหาชื่อชนิด สกุล หรือ Family …")
