@@ -1,5 +1,6 @@
 import pandas as pd
 import streamlit as st
+import base64
 from pathlib import Path
 
 BASE_DIR = Path(__file__).parent
@@ -20,6 +21,31 @@ def find_image(rel_path):
 _icon = find_image("assets/logo.png")
 st.set_page_config(page_title="Amphidex — Thai Amphipoda Key",
                    page_icon=str(_icon) if _icon else "🦐", layout="wide")
+@st.cache_data
+def img_to_b64(rel_path):
+    p = find_image(rel_path)
+    if not p:
+        return None, None
+    mime = {"jpg": "jpeg", "jpeg": "jpeg", "png": "png", "webp": "webp"}.get(
+        p.suffix.lower().lstrip("."), "png")
+    return base64.b64encode(p.read_bytes()).decode(), mime
+
+LOGO_PX = 80   # ← ปรับขนาดโลโก้ตรงนี้ (px)
+_lb, _lm = img_to_b64("assets/logo.png")
+if _lb:
+    st.markdown(f"""
+<style>
+[class*="st-key-brand_btn"] button {{
+    background-image: url("data:image/{_lm};base64,{_lb}") !important;
+    background-repeat: no-repeat !important;
+    background-position: left center !important;
+    background-size: {LOGO_PX}px auto !important;
+    padding-left: {LOGO_PX + 12}px !important;
+    min-height: {LOGO_PX}px !important;
+    white-space: nowrap !important;
+}}
+</style>
+""", unsafe_allow_html=True)
 st.markdown("""
 <style>
 [class*="st-key-sp_btn_"] button,
@@ -387,7 +413,7 @@ if "mode" not in st.session_state:
 
 top1, top2, top3 = st.columns([2, 3, 3.2], vertical_alignment="center")
 with top1:
-    lg, br = st.columns([1, 3], vertical_alignment="center")
+    st.button("Amphidex", key="brand_btn", on_click=go_to, args=(HOME,))
     with lg:
         _logo = find_image("assets/logo.png")
         if _logo:
