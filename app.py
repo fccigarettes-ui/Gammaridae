@@ -17,7 +17,9 @@ def find_image(rel_path):
                 return f
     return None
 
-st.set_page_config(page_title="Amphidex — Thai Amphipoda Key", page_icon="🦐", layout="wide")
+_icon = find_image("assets/logo.png")
+st.set_page_config(page_title="Amphidex — Thai Amphipoda Key",
+                   page_icon=str(_icon) if _icon else "🦐", layout="wide")
 st.markdown("""
 <style>
 [class*="st-key-sp_btn_"] button,
@@ -383,9 +385,15 @@ def render_home(sp_df, info_df):
 if "mode" not in st.session_state:
     st.session_state["mode"] = HOME
 
-top1, top2, top3 = st.columns([1.3, 3, 3.2], vertical_alignment="center")
+top1, top2, top3 = st.columns([2, 3, 3.2], vertical_alignment="center")
 with top1:
-    st.button("🦐 Amphidex", key="brand_btn", on_click=go_to, args=(HOME,))
+    lg, br = st.columns([1, 3], vertical_alignment="center")
+    with lg:
+        _logo = find_image("assets/logo.png")
+        if _logo:
+            st.image(str(_logo), width=56)
+    with br:
+        st.button("Amphidex", key="brand_btn", on_click=go_to, args=(HOME,))
 with top2:
     query = st.text_input("ค้นหา", key="q", label_visibility="collapsed",
                           placeholder="🔍 ค้นหาชื่อชนิด สกุล หรือ Family …")
