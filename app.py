@@ -1,7 +1,9 @@
 import pandas as pd
 import streamlit as st
-import base64
 from pathlib import Path
+import io
+import base64
+from PIL import Image
 
 BASE_DIR = Path(__file__).parent
 
@@ -18,34 +20,7 @@ def find_image(rel_path):
                 return f
     return None
 
-_icon = find_image("assets/logo.png")
-st.set_page_config(page_title="Amphidex — Thai Amphipoda Key",
-                   page_icon=str(_icon) if _icon else "🦐", layout="wide")
-@st.cache_data
-def img_to_b64(rel_path):
-    p = find_image(rel_path)
-    if not p:
-        return None, None
-    mime = {"jpg": "jpeg", "jpeg": "jpeg", "png": "png", "webp": "webp"}.get(
-        p.suffix.lower().lstrip("."), "png")
-    return base64.b64encode(p.read_bytes()).decode(), mime
-
-LOGO_PX = 80   # ← ปรับขนาดโลโก้ตรงนี้ (px)
-_lb, _lm = img_to_b64("assets/logo.png")
-if _lb:
-    st.markdown(f"""
-<style>
-[class*="st-key-brand_btn"] button {{
-    background-image: url("data:image/{_lm};base64,{_lb}") !important;
-    background-repeat: no-repeat !important;
-    background-position: left center !important;
-    background-size: {LOGO_PX}px auto !important;
-    padding-left: {LOGO_PX + 12}px !important;
-    min-height: {LOGO_PX}px !important;
-    white-space: nowrap !important;
-}}
-</style>
-""", unsafe_allow_html=True)
+st.set_page_config(page_title="Amphidex — Thai Amphipoda Key", page_icon="🦐", layout="wide")
 st.markdown("""
 <style>
 [class*="st-key-sp_btn_"] button,
@@ -67,7 +42,7 @@ st.markdown("""
     color: #0E7C86 !important; text-align: left !important; letter-spacing: -0.5px;
 }
 [class*="st-key-brand_btn"] button:hover p { color: #0A5A62 !important; }
-/* ── ที่ว่างด้านบน/ล่างของ card ── */
+/* ── กล่อง "ยังไม่มีรูป" ใน card ── */
 .noimg {
     background: #EEF4F5; border-radius: 12px; height: 140px;
     display: flex; align-items: center; justify-content: center;
@@ -75,6 +50,46 @@ st.markdown("""
 }
 </style>
 """, unsafe_allow_html=True)
+
+def find_logo():
+    """หา assets/logo.* (ไม่สนตัวพิมพ์/นามสกุล) เผื่อชื่อไฟล์ไม่ตรงเป๊ะ"""
+    folder = BASE_DIR / "assets"
+    if folder.exists():
+        for f in sorted(folder.iterdir()):
+            if f.stem.lower() == "logo" and f.suffix.lower() in (".png", ".jpg", ".jpeg", ".webp", ".tif", ".tiff"):
+                return f
+    return None
+
+@st.cache_data
+def logo_b64(px):
+    """ย่อโลโก้ให้พอดีก่อนฝัง → ต่อให้ไฟล์ต้นฉบับใหญ่ ก็เหลือไม่กี่สิบ KB"""
+    p = find_logo()
+    if not p:
+        return None
+    im = Image.open(p).convert("RGBA")
+    im.thumbnail((px * 2, px * 2))
+    buf = io.BytesIO()
+    im.save(buf, format="PNG", optimize=True)
+    return base64.b64encode(buf.getvalue()).decode()
+
+LOGO_PX = 80   # ปรับขนาดโลโก้ตรงนี้ (px)
+_lb = logo_b64(LOGO_PX)
+if _lb:
+    st.markdown(f"""
+<style>
+[class*="st-key-brand_btn"] button {{
+    background-image: url("data:image/png;base64,{_lb}") !important;
+    background-repeat: no-repeat !important;
+    background-position: left center !important;
+    background-size: {LOGO_PX}px auto !important;
+    padding-left: {LOGO_PX + 12}px !important;
+    min-height: {LOGO_PX}px !important;
+    white-space: nowrap !important;
+}}
+</style>
+""", unsafe_allow_html=True)
+else:
+    st.warning("ไม่พบไฟล์โลโก้ใน assets/ (ต้องชื่อ logo.png / logo.jpg / logo.webp)")
 
 # ── โหลดข้อมูล ─────────────────────────────────────────────────────
 @st.cache_data
