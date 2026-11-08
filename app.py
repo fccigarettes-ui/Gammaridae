@@ -201,12 +201,19 @@ CHOOSE = t("choose")
 _active_lang = st.session_state.get("lang", "th")
 st.markdown(f"""
 <style>
+/* กล่องที่ใส่ธง 2 อัน: เรียงแนวนอน ชิดกัน ชิดขวาสุด */
+.st-key-langbar {{
+    display: flex !important; flex-direction: row !important;
+    justify-content: flex-end !important; align-items: center !important;
+    gap: 6px !important; width: 100% !important;
+}}
+.st-key-langbar > div {{ width: auto !important; flex: 0 0 auto !important; min-width: 0 !important; }}
 [class*="st-key-lang_th"] button, [class*="st-key-lang_en"] button {{
     width: 38px !important; min-width: 38px !important;
     height: 26px !important; min-height: 26px !important;
     padding: 0 !important; border: 1px solid #C9D1D3 !important; border-radius: 4px !important;
     background-size: cover !important; background-position: center !important;
-    background-repeat: no-repeat !important; opacity: 0.45; margin-left: auto;
+    background-repeat: no-repeat !important; opacity: 0.45;
 }}
 [class*="st-key-lang_th"] button p, [class*="st-key-lang_en"] button p {{ display: none !important; }}
 [class*="st-key-lang_th"] button {{ background-image: url("data:image/svg+xml;base64,{_svg_b64(FLAG_TH)}") !important; }}
@@ -568,13 +575,13 @@ def render_home(sp_df, info_df):
         return
 
     # ── Hero ──
-    hc1, hc2, hc3 = st.columns([10, 1, 1], vertical_alignment="center")
+    hc1, hc2 = st.columns([9, 2], vertical_alignment="center")
     with hc1:
         st.markdown("### " + t("hero_title"))
     with hc2:
-        st.button("TH", key="lang_th", help="ภาษาไทย", on_click=set_lang, args=("th",))
-    with hc3:
-        st.button("EN", key="lang_en", help="English", on_click=set_lang, args=("en",))
+        with st.container(key="langbar"):
+            st.button("TH", key="lang_th", help="ภาษาไทย", on_click=set_lang, args=("th",))
+            st.button("EN", key="lang_en", help="English", on_click=set_lang, args=("en",))
     st.caption(t("hero_caption"))
     c1, c2 = st.columns(2)
     with c1:
