@@ -78,6 +78,7 @@ if "lang" not in st.session_state:
 
 TEXT = {
     "th": {
+        "one_species": "✅ ในฐานข้อมูลเหลือ **1 species** ที่ตรงกับลักษณะที่เลือก — ควรตรวจสอบกับ Diagnosis/Reference ก่อนสรุป",
         "no_extra_info": "ยังไม่มีข้อมูลเพิ่มเติม",
         "file_not_found": "⚠️ ไม่พบไฟล์: {path}",
         "no_image": "ยังไม่มีรูป",
@@ -131,6 +132,7 @@ TEXT = {
         "phone_th": "โทรศัพท์ (ประเทศไทย)",
     },
     "en": {
+        "one_species": "✅ Only **1 species** in the database matches — please verify against its Diagnosis/Reference before concluding.",
         "no_extra_info": "No additional information yet",
         "file_not_found": "⚠️ File not found: {path}",
         "no_image": "No image yet",
