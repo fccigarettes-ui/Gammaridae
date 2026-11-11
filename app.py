@@ -2,6 +2,7 @@ import pandas as pd
 import streamlit as st
 from pathlib import Path
 import io
+import zlib
 import re
 import base64
 from PIL import Image
@@ -78,7 +79,6 @@ if "lang" not in st.session_state:
 
 TEXT = {
     "th": {
-        "one_species": "✅ ในฐานข้อมูลเหลือ **1 species** ที่ตรงกับลักษณะที่เลือก — ควรตรวจสอบกับ Diagnosis/Reference ก่อนสรุป",
         "no_extra_info": "ยังไม่มีข้อมูลเพิ่มเติม",
         "file_not_found": "⚠️ ไม่พบไฟล์: {path}",
         "no_image": "ยังไม่มีรูป",
@@ -109,6 +109,12 @@ TEXT = {
         "err_no_species": "⚠️ ไม่พบ species ที่ตรงกับเงื่อนไข — กด 'เริ่มใหม่' หรือลบลักษณะที่เลือกผิดออก",
         "one_species": "✅ ระบุได้ **1 species**",
         "no_more_traits_sp": "🔍 ไม่มี trait เพิ่มเติม — พบ **{n} species**",
+        "skip_option": "ไม่แน่ใจ / ข้าม",
+        "pick_next_title": "**➕ เลือกชิ้นส่วนต่อไป** (เหลือ {n} species):",
+        "close_part": "ปิดส่วนนี้ (ลักษณะที่เลือกไว้ยังอยู่)",
+        "panel_hint": "**{seg}** — เลือกกี่ข้อก็ได้ ยิ่งเลือกมาก ชนิดที่เหลือยิ่งน้อย",
+        "panel_counts_tip": "ตัวเลขในวงเล็บ = จำนวนชนิดที่จะเหลือถ้าเลือกข้อนั้น ข้อไหนไม่แน่ใจให้เว้นไว้",
+        "no_chars_here": "ไม่มีลักษณะให้เลือกในส่วนนี้แล้ว ลองเลือกส่วนอื่น",
         "choose_group": "**เลือกกลุ่ม Segment** (เหลือ {n} species):",
         "group": "กลุ่ม:",
         "choose": "-- เลือก --",
@@ -132,7 +138,6 @@ TEXT = {
         "phone_th": "โทรศัพท์ (ประเทศไทย)",
     },
     "en": {
-        "one_species": "✅ Only **1 species** in the database matches — please verify against its Diagnosis/Reference before concluding.",
         "no_extra_info": "No additional information yet",
         "file_not_found": "⚠️ File not found: {path}",
         "no_image": "No image yet",
@@ -163,6 +168,12 @@ TEXT = {
         "err_no_species": "⚠️ No species match these conditions — press 'Start over' or remove the wrong character.",
         "one_species": "✅ Identified: **1 species**",
         "no_more_traits_sp": "🔍 No more characters to check — **{n} species** remain",
+        "skip_option": "Not sure / skip",
+        "pick_next_title": "**➕ Pick the next part** ({n} species remaining):",
+        "close_part": "Close this part (your selections are kept)",
+        "panel_hint": "**{seg}** — pick as many as you like; the more you pick, the fewer species remain",
+        "panel_counts_tip": "The number in brackets = species that would remain if you pick it. Leave a row empty if you are unsure.",
+        "no_chars_here": "No selectable characters left in this part. Try another part.",
         "choose_group": "**Choose a segment group** ({n} species remaining):",
         "group": "Group:",
         "choose": "-- Select --",
@@ -195,6 +206,13 @@ def t(key, **kw):
 
 def set_lang(code):
     st.session_state["lang"] = code
+
+
+def lang_switch():
+    """ปุ่มธง TH / EN — เรียกได้ทุกหน้า (ใช้ key เดียวกัน เพราะแต่ละรอบแสดงหน้าเดียว)"""
+    with st.container(key="langbar"):
+        st.button("TH", key="lang_th", help="ภาษาไทย", on_click=set_lang, args=("th",))
+        st.button("EN", key="lang_en", help="English", on_click=set_lang, args=("en",))
 
 
 CHOOSE = t("choose")
@@ -409,8 +427,8 @@ def render_species_body(species_id, genus, sci_name, author, family, order,
         ].drop_duplicates().sort_values("segment")
         if not sp_traits.empty:
             st.markdown("**Key Characters**")
-            for _, t in sp_traits.iterrows():
-                st.markdown(f"- **{t['segment']}** — {t['character']}: `{t['trait_value']}`")
+            for _, trow in sp_traits.iterrows():
+                st.markdown(f"- **{trow['segment']}** — {trow['character']}: `{trow['trait_value']}`")
             st.divider()
 
         if has("Reference"):
@@ -532,6 +550,73 @@ def render_grid(df, info_df, prefix, ncols=4):
                 species_card(r, info_df, prefix)
 
 
+def reset_species_key():
+    st.session_state.selected_traits = {}
+    st.session_state.open_segments = []
+    st.session_state.open_sp = None
+
+
+def add_segment(key):
+    """เลือกชิ้นส่วนใหม่จากช่อง 'เลือกชิ้นส่วนต่อไป' → เพิ่มเป็นบล็อกใหม่ แล้วล้างช่องให้ว่างพร้อมเลือกต่อ"""
+    seg = st.session_state.get(key)
+    if seg and seg != CHOOSE and seg not in st.session_state.open_segments:
+        st.session_state.open_segments.append(seg)
+    st.session_state["grp"] = CHOOSE
+    st.session_state[key] = CHOOSE
+
+
+def close_segment(seg):
+    if seg in st.session_state.open_segments:
+        st.session_state.open_segments.remove(seg)
+
+
+def remove_trait(tid):
+    st.session_state.selected_traits.pop(tid, None)
+    st.session_state.open_sp = None
+
+
+def render_segment_panel(merged, selected, seg):
+    """แสดงทุก character ของชิ้นส่วนที่เลือก พร้อมกัน — เลือกกี่ข้อก็ได้ (AND)
+    ตัวเลขในวงเล็บ = จำนวนชนิดที่จะเหลือถ้าเลือกข้อนั้น (นับรวมข้ออื่นที่เลือกไว้แล้ว)"""
+    traits_here = merged[merged["segment"] == seg][
+        ["trait_id", "character", "description", "state_options"]
+    ].drop_duplicates("trait_id")
+    skip = t("skip_option")
+    shown = 0
+    for row in traits_here.itertuples(index=False):
+        tid = row.trait_id
+        others = {k: v for k, v in selected.items() if k != tid}
+        base = filter_species(merged, others)
+        sub = merged[(merged["trait_id"] == tid) & merged["species_id"].isin(base)]
+        counts = sub.dropna(subset=["trait_value"]).groupby("trait_value")["species_id"].nunique()
+        counts = counts[counts > 0]
+        if counts.empty:
+            continue
+        order = ([x.strip() for x in str(row.state_options).split(",")]
+                 if pd.notna(row.state_options) else [])
+        values = sorted(counts.index, key=lambda v: (order.index(v) if v in order else 999, str(v)))
+        labels = [f"{v}  ({counts[v]})" for v in values]
+        options = [skip] + labels
+        cur = selected.get(tid)
+        idx = (values.index(cur) + 1) if cur in values else 0
+        sig = zlib.crc32("|".join(options).encode("utf-8"))
+        title = str(row.character) if pd.notna(row.character) else str(tid)
+        choice = st.radio(title, options, index=idx, horizontal=True, key=f"opt_{seg}_{tid}_{sig}_{idx}")
+        if pd.notna(row.description) and str(row.description).strip():
+            st.caption(str(row.description))
+        new_val = None if choice == skip else values[labels.index(choice)]
+        if new_val != cur:
+            if new_val is None:
+                selected.pop(tid, None)
+            else:
+                selected[tid] = new_val
+            st.session_state.open_sp = None
+            st.rerun()
+        shown += 1
+    if shown == 0:
+        st.info(t("no_chars_here"))
+
+
 def render_footer():
     """ท้ายเว็บ (ทุกหน้า): Contact us / WhatsApp / เบอร์โทรในไทย / ผู้พัฒนา — กึ่งกลาง"""
     st.divider()
@@ -563,7 +648,11 @@ def render_home(sp_df, info_df):
     # ── หน้ารายละเอียดของชนิดที่กด ──
     if detail and detail in set(sp_df["species_id"]):
         r = sp_df[sp_df["species_id"] == detail].iloc[0]
-        st.button(t("back_home"), on_click=close_detail, key="back_btn")
+        bc1, bc2 = st.columns([9, 2], vertical_alignment="center")
+        with bc1:
+            st.button(t("back_home"), on_click=close_detail, key="back_btn")
+        with bc2:
+            lang_switch()
         st.markdown(f"## *{r.Genus} {r.scientific_name}*")
         st.caption(r.Author)
         merged = load_species_data()   # โหลดเฉพาะตอนเปิดหน้ารายละเอียด
@@ -581,9 +670,7 @@ def render_home(sp_df, info_df):
     with hc1:
         st.markdown("### " + t("hero_title"))
     with hc2:
-        with st.container(key="langbar"):
-            st.button("TH", key="lang_th", help="ภาษาไทย", on_click=set_lang, args=("th",))
-            st.button("EN", key="lang_en", help="English", on_click=set_lang, args=("en",))
+        lang_switch()
     st.caption(t("hero_caption"))
     c1, c2 = st.columns(2)
     with c1:
@@ -643,11 +730,13 @@ _info_df = load_species_info()
 # ── ถ้ามีคำค้น → แสดงผลค้นหาแทนหน้าปัจจุบัน ──
 if query.strip():
     results = search_species(_sp_df, query)
-    h1, h2 = st.columns([4, 1], vertical_alignment="center")
+    h1, h2, h3 = st.columns([7, 2, 2], vertical_alignment="center")
     with h1:
         st.markdown(t("search_results", q=query.strip(), n=len(results)))
     with h2:
         st.button(t("clear_search"), on_click=clear_search, use_container_width=True)
+    with h3:
+        lang_switch()
     if results.empty:
         st.info(t("no_match"))
     else:
@@ -668,57 +757,44 @@ elif mode == SPECIES:
 
     if "selected_traits" not in st.session_state:
         st.session_state.selected_traits = {}
-    if "step_history" not in st.session_state:
-        st.session_state.step_history = []
     if "open_sp" not in st.session_state:
         st.session_state.open_sp = None
+    if "open_segments" not in st.session_state:
+        st.session_state.open_segments = []
 
     selected_traits = st.session_state.selected_traits
     candidates = filter_species(merged, selected_traits)
 
-    st.subheader("Key to Species")
+    kc1, kc2 = st.columns([9, 2], vertical_alignment="center")
+    with kc1:
+        st.subheader("Key to Species")
+    with kc2:
+        lang_switch()
     col1, col2 = st.columns([3, 1])
     with col1:
         st.write(t("db_remaining_sp", n=merged['species_id'].nunique(), m=len(candidates)))
     with col2:
-        if st.button(t("reset"), use_container_width=True):
-            st.session_state.selected_traits = {}
-            st.session_state.step_history = []
-            st.session_state.open_sp = None
-            st.rerun()
+        st.button(t("reset"), on_click=reset_species_key, use_container_width=True)
 
-    if st.session_state.step_history:
+    # ── ลักษณะที่เลือกไว้ (แก้/ลบได้ทีละข้อ) ──
+    meta = merged[["trait_id", "segment", "character"]].drop_duplicates("trait_id").set_index("trait_id")
+    if selected_traits:
         st.markdown(t("chosen"))
-        for i, (tid, val, seg, desc) in enumerate(st.session_state.step_history):
-            col_h, col_del = st.columns([5, 1])
-            with col_h:
-                st.markdown(f"&nbsp;&nbsp;{i+1}. **{seg}** — {desc}: `{val}`")
-            with col_del:
-                if st.button("✕", key=f"del_{i}"):
-                    st.session_state.step_history = st.session_state.step_history[:i]
-                    st.session_state.selected_traits = {
-                        t: v for t, v, _, _ in st.session_state.step_history[:i]
-                    }
-                    st.session_state.open_sp = None
-                    st.rerun()
+        for i, (tid, val) in enumerate(selected_traits.items(), 1):
+            seg_n = meta.loc[tid, "segment"] if tid in meta.index else tid
+            chr_n = meta.loc[tid, "character"] if tid in meta.index else ""
+            c_h, c_x = st.columns([5, 1])
+            with c_h:
+                st.markdown(f"&nbsp;&nbsp;{i}. **{seg_n}** — {chr_n}: `{val}`")
+            with c_x:
+                st.button("✕", key=f"del_{tid}", on_click=remove_trait, args=(tid,))
         st.divider()
 
     if len(candidates) == 0:
         st.error(t("err_no_species"))
-
-    elif len(candidates) == 1:
-        st.success(t("one_species"))
-        result_df = get_result_df(merged, candidates)
-        r = result_df.iloc[0]
-        show_species_expander(
-            r["species_id"], r["Genus"], r["scientific_name"],
-            r["Author"], r["Family"], r["Order"], merged, info_df
-        )
-
     else:
-        avail = merged[merged["species_id"].isin(candidates)]
-        used_traits = set(selected_traits.keys())
-        avail_traits = avail[~avail["trait_id"].isin(used_traits)]
+        if len(candidates) == 1:
+            st.success(t("one_species"))
 
         seg_groups = {
             "🦐 Head & Antennae": [
@@ -754,86 +830,70 @@ elif mode == SPECIES:
             ]
         }
 
-        avail_segs = set(avail_traits["segment"].dropna().unique())
+        avail = merged[merged["species_id"].isin(candidates)]
+        avail_segs = set(avail["segment"].dropna().unique())
         active_groups = {
             grp: [s for s in segs if s in avail_segs]
             for grp, segs in seg_groups.items()
         }
         active_groups = {g: s for g, s in active_groups.items() if s}
+        _all_grouped = {s for segs in seg_groups.values() for s in segs}
+        _others = sorted(avail_segs - _all_grouped)
+        if _others:
+            active_groups[t("others")] = _others
 
-        if not active_groups:
-            st.info(t("no_more_traits_sp", n=len(candidates)))
-        else:
-            st.markdown(t("choose_group", n=len(candidates)))
-            sel_group = st.selectbox(t("group"), [CHOOSE] + list(active_groups.keys()),
-                                     key=f"grp_{len(selected_traits)}")
+        # ── ชิ้นส่วนที่เปิดไว้ (ซ้อนกันได้หลายชิ้น แก้ค่าได้ตลอด) ──
+        open_segs = st.session_state.open_segments
+        if open_segs:
+            st.caption(t("panel_counts_tip"))
+        for seg_name in list(open_segs):
+            with st.container(border=True):
+                hc_a, hc_b = st.columns([6, 1], vertical_alignment="center")
+                with hc_a:
+                    st.markdown(f"**{seg_name}**")
+                with hc_b:
+                    st.button("✕", key=f"close_{seg_name}", on_click=close_segment,
+                              args=(seg_name,), help=t("close_part"))
+                render_segment_panel(merged, selected_traits, seg_name)
 
+        # ── ช่องเลือกชิ้นส่วนต่อไป: ว่างพร้อมเลือกใหม่ทุกครั้ง ──
+        remaining_groups = {g: [x for x in segs if x not in open_segs] for g, segs in active_groups.items()}
+        remaining_groups = {g: x for g, x in remaining_groups.items() if x}
+        if remaining_groups and len(candidates) > 1:   # เหลือ 1 ชนิดแล้ว ไม่ต้องเลือกชิ้นส่วนต่อ
+            st.markdown(t("pick_next_title" if open_segs else "choose_group", n=len(candidates)))
+            sel_group = st.selectbox(t("group"), [CHOOSE] + list(remaining_groups.keys()), key="grp")
             if sel_group != CHOOSE:
-                sel_seg = st.selectbox("Segment:", [CHOOSE] + active_groups[sel_group],
-                                       key=f"seg_{len(selected_traits)}")
+                st.selectbox("Segment:", [CHOOSE] + remaining_groups[sel_group],
+                             key=f"seg_{sel_group}", on_change=add_segment, args=(f"seg_{sel_group}",))
 
-                if sel_seg != CHOOSE:
-                    seg_traits = avail_traits[avail_traits["segment"] == sel_seg][
-                        ["trait_id", "character", "description", "state_options"]
-                    ].drop_duplicates("trait_id")
-
-                    trait_labels, trait_map = [], {}
-                    for _, row in seg_traits.iterrows():
-                        char = str(row["character"]) if pd.notna(row["character"]) else ""
-                        states = str(row["state_options"]) if pd.notna(row["state_options"]) else ""
-                        label = f"{char}: {states}" if states else char
-                        base = label
-                        while label in trait_map:
-                            label = f"{base} [{row['trait_id']}]"
-                        trait_labels.append(label)
-                        trait_map[label] = row["trait_id"]
-
-                    sel_trait_label = st.selectbox(t("char_to_check"),
-                                                   [CHOOSE] + trait_labels,
-                                                   key=f"trait_{len(selected_traits)}")
-
-                    if sel_trait_label != CHOOSE:
-                        sel_trait_id = trait_map[sel_trait_label]
-                        values = sorted(avail[avail["trait_id"] == sel_trait_id]["trait_value"].dropna().unique())
-                        value_labels = []
-                        for v in values:
-                            n = len(avail[
-                                (avail["trait_id"] == sel_trait_id) &
-                                (avail["trait_value"] == v)
-                            ]["species_id"].unique())
-                            value_labels.append(f"{v}  ({n} species)")
-
-                        sel_val_label = st.selectbox(t("state_found"),
-                                                     [CHOOSE] + value_labels,
-                                                     key=f"val_{len(selected_traits)}")
-
-                        if sel_val_label != CHOOSE:
-                            sel_val = values[value_labels.index(sel_val_label)]
-                            if st.button(t("confirm"), use_container_width=True):
-                                st.session_state.selected_traits[sel_trait_id] = sel_val
-                                st.session_state.step_history.append(
-                                    (sel_trait_id, sel_val, sel_seg, sel_trait_label)
-                                )
-                                st.session_state.open_sp = None
-                                st.rerun()
-
-        # ── ผลลัพธ์ปัจจุบัน — แสดง expander แต่ละ species ──
-        if selected_traits and len(candidates) > 1:
+        # ── ผลลัพธ์ปัจจุบัน ──
+        if selected_traits:
             st.divider()
-            st.info(t("current_results_sp", n=len(candidates)))
             result_df = get_result_df(merged, candidates)
-            for _, r in result_df.iterrows():
+            if len(candidates) == 1:
+                r = result_df.iloc[0]
                 show_species_expander(
                     r["species_id"], r["Genus"], r["scientific_name"],
-                    r["Author"], r["Family"], r["Order"], merged, info_df
+                    r["Author"], r["Family"], r["Order"], merged, info_df, default_open=True
                 )
+            else:
+                st.info(t("current_results_sp", n=len(candidates)))
+                for _, r in result_df.iterrows():
+                    show_species_expander(
+                        r["species_id"], r["Genus"], r["scientific_name"],
+                        r["Author"], r["Family"], r["Order"], merged, info_df
+                    )
 
 
 # ══════════════════════════════════════════════════════════════════
 # KEY TO FAMILY
 # ══════════════════════════════════════════════════════════════════
 elif mode == FAMILY:
-    st.subheader("Key to Family")
+    kf1, kf2 = st.columns([9, 2], vertical_alignment="center")
+    with kf1:
+        st.subheader("Key to Family")
+    with kf2:
+        lang_switch()
     st.write(t("family_intro"))
 
     try:
@@ -866,7 +926,7 @@ elif mode == FAMILY:
                     if st.button("✕", key=f"fam_del_{i}"):
                         st.session_state.fam_step_history = st.session_state.fam_step_history[:i]
                         st.session_state.fam_selected_traits = {
-                            t: v for t, v, _, _ in st.session_state.fam_step_history[:i]
+                            k: v for k, v, _, _ in st.session_state.fam_step_history[:i]
                         }
                         st.rerun()
             st.divider()
