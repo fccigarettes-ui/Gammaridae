@@ -53,27 +53,19 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# ══════════════════════════════════════════════════════════════════
-# ตั้งค่าที่แก้เองได้ (ข้อมูลติดต่อ / ชื่อผู้พัฒนา / ขนาดโลโก้)
-# ══════════════════════════════════════════════════════════════════
-CONTACT_WHATSAPP_TEXT = "+66 XX XXX XXXX"   # ← ข้อความที่แสดงข้างโลโก้ WhatsApp
-CONTACT_WHATSAPP_URL = ""                   # ← ลิงก์ เช่น "https://wa.me/66XXXXXXXXX" (เว้นว่าง = ไม่เป็นลิงก์)
-CONTACT_PHONE_TH = "0X-XXX-XXXX"            # ← เบอร์โทรในประเทศไทย
-AUTHOR_NAME = {"th": "ธชาพัฒน์", "en": "Thachaphat"}   # ← ชื่อผู้พัฒนา (แก้ตัวสะกดอังกฤษได้)
-LOGO_PX = 80                                # ← ขนาดโลโก้ (px)
+CONTACT_WHATSAPP_TEXT = "+66 XX XXX XXXX"  
+CONTACT_WHATSAPP_URL = ""                   
+CONTACT_PHONE_TH = "061-301-9515"           
+AUTHOR_NAME = {"th": "ธชาพัฒน์", "en": "T. Phibunnonnithi"}  
+LOGO_PX = 120                                
 
 FLAG_TH = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600"><rect width="900" height="600" fill="#A51931"/><rect y="100" width="900" height="400" fill="#F4F5F8"/><rect y="200" width="900" height="200" fill="#2D2A4A"/></svg>'
 FLAG_UK = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30"><clipPath id="s"><path d="M0,0 v30 h60 v-30 z"/></clipPath><clipPath id="t"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><g clip-path="url(#s)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#t)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></g></svg>'
 ICON_WA = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#25D366" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>'
 
-
 def _svg_b64(svg):
     return base64.b64encode(svg.encode("utf-8")).decode()
 
-
-# ══════════════════════════════════════════════════════════════════
-# ภาษา (ค่าเริ่มต้น = ไทย) — ข้อความทั้งหมดอยู่ในตารางนี้
-# ══════════════════════════════════════════════════════════════════
 if "lang" not in st.session_state:
     st.session_state["lang"] = "th"
 
@@ -98,7 +90,7 @@ TEXT = {
         "filter_family": "กรองตาม Family",
         "all_families": "ทุก Family",
         "disclaimer": "⚠️ Amphidex เป็นเครื่องมือช่วยระบุเบื้องต้น ควรตรวจสอบผลกับเอกสารต้นฉบับ (ลิงก์ Reference/PDF/Plazi ในหน้าแต่ละชนิด) ก่อนนำไปใช้ในงานวิจัย",
-        "developed_by": "กำลังพัฒนาโดย{name}",
+        "developed_by": "เว็บไซต์นี้กำลังพัฒนาโดย{name}",
         "search_placeholder": "🔍 ค้นหาชื่อชนิด สกุล หรือ Family …",
         "search_results": "**ผลการค้นหา “{q}” — {n} รายการ**",
         "clear_search": "✕ ล้างการค้นหา",
@@ -198,15 +190,12 @@ TEXT = {
     },
 }
 
-
 def t(key, **kw):
     s = TEXT[st.session_state.get("lang", "th")][key]
     return s.format(**kw) if kw else s
 
-
 def set_lang(code):
     st.session_state["lang"] = code
-
 
 def lang_switch():
     """ปุ่มธง TH / EN — เรียกได้ทุกหน้า (ใช้ key เดียวกัน เพราะแต่ละรอบแสดงหน้าเดียว)"""
@@ -214,10 +203,8 @@ def lang_switch():
         st.button("TH", key="lang_th", help="ภาษาไทย", on_click=set_lang, args=("th",))
         st.button("EN", key="lang_en", help="English", on_click=set_lang, args=("en",))
 
-
 CHOOSE = t("choose")
 
-# ── ปุ่มธงเปลี่ยนภาษา (รูปธงเป็นพื้นหลังปุ่ม) ──
 _active_lang = st.session_state.get("lang", "th")
 st.markdown(f"""
 <style>
@@ -243,8 +230,6 @@ st.markdown(f"""
 </style>
 """, unsafe_allow_html=True)
 
-
-# ── โลโก้ซ้ายบน (ย่อรูปก่อนฝัง กันเว็บหนัก) ──
 def find_logo():
     folder = BASE_DIR / "assets"
     if folder.exists():
@@ -252,7 +237,6 @@ def find_logo():
             if f.stem.lower() == "logo" and f.suffix.lower() in (".png", ".jpg", ".jpeg", ".webp", ".tif", ".tiff"):
                 return f
     return None
-
 
 @st.cache_data
 def logo_b64(px):
@@ -264,7 +248,6 @@ def logo_b64(px):
     buf = io.BytesIO()
     im.save(buf, format="PNG", optimize=True)
     return base64.b64encode(buf.getvalue()).decode()
-
 
 _lb = logo_b64(LOGO_PX)
 if _lb:
@@ -282,13 +265,12 @@ if _lb:
 </style>
 """, unsafe_allow_html=True)
 
-# ── โหลดข้อมูล ─────────────────────────────────────────────────────
 @st.cache_data
 def load_species_data():
     species = pd.read_csv("species.csv")
     traits = pd.read_csv("trait_id.csv")
     species_traits = pd.read_csv("species_traits.csv")
-    # ทำชื่อคอลัมน์ให้เป็นรูปเดียวกัน (ตัวเล็ก ไม่มีช่องว่าง) กัน error จากการสะกด/เว้นวรรค
+   
     def _norm(df):
         df.columns = (df.columns.astype(str).str.strip().str.lower()
                       .str.replace(r"\s+", "_", regex=True))
@@ -297,7 +279,6 @@ def load_species_data():
     species_traits = _norm(species_traits)
     species = species.rename(columns={"species id": "species_id", "Species": "scientific_name"})
 
-    # คอลัมน์ที่ขาดได้ (ไม่จำเป็นต่อการกรอง) → เติมว่างให้ ไม่ให้แอปล้ม
     for c in ["state_options", "description"]:
         if c not in traits.columns:
             traits[c] = None
@@ -350,7 +331,6 @@ def load_species_info():
     df = df.rename(columns={"species id": "species_id"})
     return df
 
-# ── helper functions ────────────────────────────────────────────────
 def filter_species(merged, selected_traits):
     candidates = set(merged["species_id"].unique())
     for trait_id, trait_value in selected_traits.items():
@@ -384,12 +364,10 @@ HOME = "🏠 Home"
 SPECIES = "🔬 Key to Species"
 FAMILY = "📂 Key to Family"
 
-
 def add_viewed(species_id, limit=12):
     """จำชนิดที่เปิดดู (ล่าสุดอยู่หน้าสุด) — เก็บใน session ของผู้ใช้คนนั้นเท่านั้น"""
     v = [x for x in st.session_state.get("viewed", []) if x != species_id]
     st.session_state["viewed"] = [species_id] + v[:limit - 1]
-
 
 def render_species_body(species_id, genus, sci_name, author, family, order,
                         merged, info_df):
@@ -406,7 +384,7 @@ def render_species_body(species_id, genus, sci_name, author, family, order,
         def has(col):
             return col in r.index and pd.notna(r[col]) and str(r[col]).strip() not in ("", "nan")
 
-        # รูปภาพ
+        
         if has("image_main"):
             found = find_image(r["image_main"])
             if found:
@@ -421,7 +399,7 @@ def render_species_body(species_id, genus, sci_name, author, family, order,
 
         st.divider()
 
-        # Key characters ดึงจาก species_traits อัตโนมัติ
+        
         sp_traits = merged[merged["species_id"] == species_id][
             ["segment", "character", "trait_value"]
         ].drop_duplicates().sort_values("segment")
@@ -468,9 +446,6 @@ def show_species_expander(species_id, genus, sci_name, author, family, order,
                         merged, info_df)
 
 
-# ══════════════════════════════════════════════════════════════════
-# HOME / SEARCH helpers
-# ══════════════════════════════════════════════════════════════════
 @st.cache_data
 def load_species_list():
     sp = pd.read_csv("species.csv")
@@ -645,7 +620,7 @@ def render_home(sp_df, info_df):
     viewed = [v for v in st.session_state.get("viewed", []) if v in set(sp_df["species_id"])]
     detail = st.session_state.get("detail_sp")
 
-    # ── หน้ารายละเอียดของชนิดที่กด ──
+    
     if detail and detail in set(sp_df["species_id"]):
         r = sp_df[sp_df["species_id"] == detail].iloc[0]
         bc1, bc2 = st.columns([9, 2], vertical_alignment="center")
@@ -655,7 +630,7 @@ def render_home(sp_df, info_df):
             lang_switch()
         st.markdown(f"## *{r.Genus} {r.scientific_name}*")
         st.caption(r.Author)
-        merged = load_species_data()   # โหลดเฉพาะตอนเปิดหน้ารายละเอียด
+        merged = load_species_data()   
         render_species_body(detail, r.Genus, r.scientific_name, r.Author,
                             r.Family, r.Order, merged, info_df)
         rel = related_species(sp_df, [detail], [detail])
@@ -665,7 +640,7 @@ def render_home(sp_df, info_df):
             render_grid(rel, info_df, "reldetail")
         return
 
-    # ── Hero ──
+    
     hc1, hc2 = st.columns([9, 2], vertical_alignment="center")
     with hc1:
         st.markdown("### " + t("hero_title"))
@@ -681,7 +656,7 @@ def render_home(sp_df, info_df):
                   on_click=go_to, args=(SPECIES,), use_container_width=True)
     st.caption(t("db_stats", sp=len(sp_df), gn=sp_df['Genus'].nunique(), fm=sp_df['Family'].nunique()))
 
-    # ── ที่ผู้ใช้เคยกดดู ──
+    
     if viewed:
         st.markdown("### " + t("recently_viewed"))
         recent = sp_df.set_index("species_id").loc[viewed[:8]].reset_index()
@@ -693,7 +668,7 @@ def render_home(sp_df, info_df):
             st.caption(t("same_genus_family_viewed"))
             render_grid(rel, info_df, "related")
 
-    # ── สำรวจทั้งหมด ──
+    
     st.markdown("### " + t("explore_all"))
     fams = sorted(f for f in sp_df["Family"].unique() if f)
     sel = st.multiselect(t("filter_family"), fams, placeholder=t("all_families"), key="home_fam")
@@ -707,9 +682,6 @@ def render_home(sp_df, info_df):
     st.caption(t("disclaimer"))
 
 
-# ══════════════════════════════════════════════════════════════════
-# TOP BAR: โลโก้ (ซ้าย) | ค้นหา (กลาง) | เมนู (ขวา)
-# ══════════════════════════════════════════════════════════════════
 if "mode" not in st.session_state:
     st.session_state["mode"] = HOME
 
@@ -727,7 +699,6 @@ st.divider()
 _sp_df = load_species_list()
 _info_df = load_species_info()
 
-# ── ถ้ามีคำค้น → แสดงผลค้นหาแทนหน้าปัจจุบัน ──
 if query.strip():
     results = search_species(_sp_df, query)
     h1, h2, h3 = st.columns([7, 2, 2], vertical_alignment="center")
@@ -748,9 +719,7 @@ if query.strip():
 if mode == HOME:
     render_home(_sp_df, _info_df)
 
-# ══════════════════════════════════════════════════════════════════
-# KEY TO SPECIES
-# ══════════════════════════════════════════════════════════════════
+
 elif mode == SPECIES:
     merged = load_species_data()
     info_df = load_species_info()
@@ -776,7 +745,7 @@ elif mode == SPECIES:
     with col2:
         st.button(t("reset"), on_click=reset_species_key, use_container_width=True)
 
-    # ── ลักษณะที่เลือกไว้ (แก้/ลบได้ทีละข้อ) ──
+    
     meta = merged[["trait_id", "segment", "character"]].drop_duplicates("trait_id").set_index("trait_id")
     if selected_traits:
         st.markdown(t("chosen"))
@@ -842,7 +811,7 @@ elif mode == SPECIES:
         if _others:
             active_groups[t("others")] = _others
 
-        # ── ชิ้นส่วนที่เปิดไว้ (ซ้อนกันได้หลายชิ้น แก้ค่าได้ตลอด) ──
+    
         open_segs = st.session_state.open_segments
         if open_segs:
             st.caption(t("panel_counts_tip"))
@@ -856,17 +825,17 @@ elif mode == SPECIES:
                               args=(seg_name,), help=t("close_part"))
                 render_segment_panel(merged, selected_traits, seg_name)
 
-        # ── ช่องเลือกชิ้นส่วนต่อไป: ว่างพร้อมเลือกใหม่ทุกครั้ง ──
+    
         remaining_groups = {g: [x for x in segs if x not in open_segs] for g, segs in active_groups.items()}
         remaining_groups = {g: x for g, x in remaining_groups.items() if x}
-        if remaining_groups and len(candidates) > 1:   # เหลือ 1 ชนิดแล้ว ไม่ต้องเลือกชิ้นส่วนต่อ
+        if remaining_groups and len(candidates) > 1:   
             st.markdown(t("pick_next_title" if open_segs else "choose_group", n=len(candidates)))
             sel_group = st.selectbox(t("group"), [CHOOSE] + list(remaining_groups.keys()), key="grp")
             if sel_group != CHOOSE:
                 st.selectbox("Segment:", [CHOOSE] + remaining_groups[sel_group],
                              key=f"seg_{sel_group}", on_change=add_segment, args=(f"seg_{sel_group}",))
 
-        # ── ผลลัพธ์ปัจจุบัน ──
+    
         if selected_traits:
             st.divider()
             result_df = get_result_df(merged, candidates)
@@ -885,9 +854,7 @@ elif mode == SPECIES:
                     )
 
 
-# ══════════════════════════════════════════════════════════════════
-# KEY TO FAMILY
-# ══════════════════════════════════════════════════════════════════
+
 elif mode == FAMILY:
     kf1, kf2 = st.columns([9, 2], vertical_alignment="center")
     with kf1:
