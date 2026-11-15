@@ -313,7 +313,7 @@ def load_family_data():
         "pereopod 3", "pereopod 3 merus", "pereopod 4", "pereopod 4 merus",
         "pereopod 5", "pereopod 5 basis", "pereopod 5 merus",
         "pereopod 6", "pereopod 6 merus",
-        "pereopod 7", "pereopod 7 basis", "pereopod 7 dactyl",
+        "pereopod 7", "pereopod 7 basis", "pereopod 7 dactylus",
         "coxa 1", "coxa 2", "coxa 3", "coxa 4", "coxa 5", "coxa 6", "coxae",
         "body", "pereonite", "pleonite", "pleon 3",
         "urosome", "urosome 1", "urosome 2", "urosome 3",
@@ -781,7 +781,7 @@ elif mode == SPECIES:
                 "pereopod 4", "pereopod 5", "pereopod 6", "pereopod 7", "pereopods"
             ],
             "🔩 Limb segments": [
-                "basis", "ischium", "carpus", "merus", "propodus", "dactyl", "proximal"
+                "basis", "ischium", "carpus", "merus", "propodus", "dactylus", "proximal"
             ],
             "📦 Coxae": [
                 "coxa 1", "coxa 2", "coxa 3", "coxa 4",
@@ -927,7 +927,7 @@ elif mode == FAMILY:
                     "pereopod 3", "pereopod 3 merus", "pereopod 4", "pereopod 4 merus",
                     "pereopod 5", "pereopod 5 basis", "pereopod 5 merus",
                     "pereopod 6", "pereopod 6 merus",
-                    "pereopod 7", "pereopod 7 basis", "pereopod 7 dactyl"
+                    "pereopod 7", "pereopod 7 basis", "pereopod 7 dactylus"
                 ],
                 "📦 Coxae": ["coxa 1", "coxa 2", "coxa 3", "coxa 4", "coxa 5", "coxa 6", "coxae"],
                 "🫁 Body": ["body", "pereonite", "pleonite", "pleon 3"],
