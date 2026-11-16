@@ -575,7 +575,14 @@ def render_segment_panel(merged, selected, seg):
         cur = selected.get(tid)
         idx = (values.index(cur) + 1) if cur in values else 0
         sig = zlib.crc32("|".join(options).encode("utf-8"))
-        title = str(row.character) if pd.notna(row.character) else str(tid)
+        notes = merged.loc[merged["trait_id"] == tid, "observation_note"].dropna()
+        if not notes.empty:
+            title = notes.mode().iloc[0]
+        elif pd.notna(row.character):
+            title = str(row.character)
+        else:
+            title = str(tid)
+
         choice = st.radio(title, options, index=idx, horizontal=True, key=f"opt_{seg}_{tid}_{sig}_{idx}")
         if pd.notna(row.description) and str(row.description).strip():
             st.caption(str(row.description))
@@ -612,6 +619,7 @@ def render_footer():
 <div>{wa_html}</div>
 <div>{t("phone_th")}: {phone_html}</div>
 <div style="font-size:0.8rem;opacity:0.65;">{t("developed_by", name=AUTHOR_NAME[lang])}</div>
+<div style="font-size:0.75rem;opacity:0.5;margin-top:4px;">Copyright © 2026 T. Phibunnonnithi. All rights reserved.</div>
 </div>
 """, unsafe_allow_html=True)
 
