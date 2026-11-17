@@ -576,12 +576,10 @@ def render_segment_panel(merged, selected, seg):
         idx = (values.index(cur) + 1) if cur in values else 0
         sig = zlib.crc32("|".join(options).encode("utf-8"))
         notes = merged.loc[merged["trait_id"] == tid, "observation_note"].dropna()
-        if not notes.empty:
-            title = notes.mode().iloc[0]
-        elif pd.notna(row.character):
-            title = str(row.character)
-        else:
-            title = str(tid)
+        part_name = notes.mode().iloc[0] if not notes.empty else str(tid)
+        character = str(row.character).strip() if pd.notna(row.character) else ""
+
+        title = f"{part_name} — {character}" if character else part_name
 
         choice = st.radio(title, options, index=idx, horizontal=True, key=f"opt_{seg}_{tid}_{sig}_{idx}")
         if pd.notna(row.description) and str(row.description).strip():
