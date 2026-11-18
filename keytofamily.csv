@@ -8,9 +8,9 @@ suborder numbers,suborder id,superfamily,family,trait id,trait value,observation
 2,4,,,T10,palps present,maxillipeds
 3,Hyperiidea,,,T57,with only 2 segments,urosome
 3,Gammaridea,,,T57,with 3 segments,urosome
-4,Ingolfiellidea,,,T12h,movable ccompound form of articles 6 to 7 together,dactyl of gnathopods
+4,Ingolfiellidea,,,T12h,movable ccompound form of articles 6 to 7 together,dactylus of gnathopods
 4,Ingolfiellidea,,,T56,vestigial or absent when present leaf-like,pleopods
-4,Gammaridea,,,T12h,formed of article 7 only,dactyl of gnathopods
+4,Gammaridea,,,T12h,formed of article 7 only,dactylus of gnathopods
 4,Gammaridea,,,T56,well developed rarely vestigial and only in terrestial species or 2 aquatic hypogean-anchialine genera of Bogidicllidae,pleopods
 ,,,,,,
 Key to Marine families of Suborder Gammaridea,,,,,,
@@ -126,7 +126,7 @@ suborder numbers,suborder id,superfamily,family,trait id,trait value,observation
 8,9,,,T23,longer than broad,coxa 3
 8,9,,,T55,dorsally smooth,pleonite
 8,9,,,T20a,at least 1.5 times as long as 5 or 6,pereopod 7
-8,9,,,T20g,very elongate head without lateral ocular bulges,pereopod 7 dactyl
+8,9,,,T20g,very elongate head without lateral ocular bulges,pereopod 7 dactylus
 8,Melphidippidae,,Melphidippidae,T22,very short and broader than long,coxa 2
 8,Melphidippidae,,Melphidippidae,T23,very short and broader than long,coxa 3
 8,Melphidippidae,,Melphidippidae,T48,with strong hemispherical ocular bulges on sides,head
@@ -134,7 +134,7 @@ suborder numbers,suborder id,superfamily,family,trait id,trait value,observation
 8,Casco,,,T23,about as long as broad,coxa 3
 8,Casco,,,T30,with 1 dorsal teeth,pleon 3
 8,Casco,,,T18a,long but subequal in length,pereopod 5
-8,Casco,,,T18g,short,pereopod 5 dactyl
+8,Casco,,,T18g,short,pereopod 5 dactylus
 8,Casco,,,T48,without lateral ocular bulges,head
 8,Eusiridae,,Eusiridae,T22,slightly longer than broad,coxa 2
 8,Eusiridae,,Eusiridae,T23,slightly longer than broad,coxa 3
@@ -142,7 +142,7 @@ suborder numbers,suborder id,superfamily,family,trait id,trait value,observation
 8,Eusiridae,,Eusiridae,T18a,similar slightly and consecutively more elongate,pereopod 5
 8,Eusiridae,,Eusiridae,T19a,similar slightly and consecutively more elongate,pereopod 6
 8,Eusiridae,,Eusiridae,T20a,similar slightly and consecutively more elongate and less than 25% longer than pereopod 6,pereopod 7
-8,Eusiridae,,Eusiridae,T20g,short,pereopod 7 dactyl
+8,Eusiridae,,Eusiridae,T20g,short,pereopod 7 dactylus
 8,Eusiridae,,Eusiridae,T48,without ocular bulges but often rostrate,head
 9,Megaluropidae,Calliopioidea,Megaluropidae,T42,peduncle not elongate,uropod 3
 9,10,,,T42,peduncle not elongate,uropod 3
@@ -438,10 +438,10 @@ suborder numbers,suborder id,superfamily,family,trait id,trait value,observation
 13,14,,,T07,palp absent,mandible
 13,15,,,T07,palp present,mandible
 14,Dexaminidae,,Dexaminidae,T20a,not significantly longer than pereopod 6,pereopod 7
-14,Dexaminidae,,Dexaminidae,T20g,short curved and naked,pereopod 7 dactyl
+14,Dexaminidae,,Dexaminidae,T20g,short curved and naked,pereopod 7 dactylus
 14,Dexaminidae,,Dexaminidae,T43,cleft,telson
 14,Paracalliopiidae,,Paracalliopiidae,T20a,much longer than pereopod 6,pereopod 7
-14,Paracalliopiidae,,Paracalliopiidae,T20g,elongate straight and setose,pereopod 7 dactyl
+14,Paracalliopiidae,,Paracalliopiidae,T20g,elongate straight and setose,pereopod 7 dactylus
 14,Paracalliopiidae,,Paracalliopiidae,T43,entire,telson
 15,16,,,T20a,different structure from pereopod 6,pereopod 7
 15,16,,,T20b,shield like or with sharp angles,pereopod 7 basis
@@ -453,10 +453,10 @@ suborder numbers,suborder id,superfamily,family,trait id,trait value,observation
 16,17,,,T20b,setae short or sparse and ventral lobe not prominent,pereopod 7 basis
 17,Dexaminidae,,Dexaminidae,T43,cleft,telson
 17,Dexaminidae,,Dexaminidae,T42,peduncle shorter than telson or rami of uropod 3,uropod 3
-17,Dexaminidae,,Dexaminidae,T20g,short,pereopod 7 dactyl
+17,Dexaminidae,,Dexaminidae,T20g,short,pereopod 7 dactylus
 17,22,,,T43,entire,telson
 17,22,,,T42,peduncle elongate longer than telson almost as long as rami or vestigial,uropod 3
-17,22,,,T20g,elongate,pereopod 7 dactyl
+17,22,,,T20g,elongate,pereopod 7 dactylus
 18,Dexaminidae,,Dexaminidae,T43,cleft or deeply emarginate and flat,telson
 18,19,,,T43,entire or slightly emarginate fleshy,telson
 19,20,,,T37,elongate,urosome 1
@@ -467,10 +467,10 @@ suborder numbers,suborder id,superfamily,family,trait id,trait value,observation
 20,21,,,T41,similar to uropod 1 and ordinary or reduced or absent,uropod 2
 21,Corophioidea,Corophioidea,,T43,fleshy and fixed solially,telson
 21,Corophioidea,Corophioidea,,T20a,not greatly longer than pereopod 6,pereopod 7
-21,Corophioidea,Corophioidea,,T20g,short,pereopod 7 dactyl
+21,Corophioidea,Corophioidea,,T20g,short,pereopod 7 dactylus
 21,22,,,T43,flat or flappable,telson
 21,22,,,T20a,greatly longer than pereopod 6,pereopod 7
-21,22,,,T20g,long and setose,pereopod 7 dactyl
+21,22,,,T20g,long and setose,pereopod 7 dactylus
 22,Oedicerotidae,,Oedicerotidae,T04,fused dorsally or absent,eyes
 22,Oedicerotidae,,Oedicerotidae,T48,galeate,head
 22,Oedicerotidae,,Oedicerotidae,T12a,ordinary,gnathopod 1
@@ -493,7 +493,7 @@ Key to Marine families of Suborder Gammaridea,,,,,,
 Section E,,,,,,
 suborder numbers,suborder id,superfamily,family,trait id,trait value,observation note
 1,2,,,T12a,reduced to coxa or basis or absent,gnathopod 1
-1,3,,,T12a,with propodus to dactyl,gnathopod 1
+1,3,,,T12a,with propodus to dactylus,gnathopod 1
 2,Anamixidae,,Anamixidae,T07,vestigial,mandible
 2,Anamixidae,,Anamixidae,T08,vestigial,maxilla 1
 2,Anamixidae,,Anamixidae,T09,vestigial,maxilla 2
@@ -623,9 +623,9 @@ suborder numbers,suborder id,superfamily,family,trait id,trait value,observation
 14,15,,,T43,not fleshy,telson
 14,15,,,T20a,fassorial,pereopod 7
 15,Exoedicerotidae,,Exoedicerotidae,T20a,elongate,pereopod 7
-15,Exoedicerotidae,,Exoedicerotidae,T20g,elongate,pereopod 7 dactyl
+15,Exoedicerotidae,,Exoedicerotidae,T20g,elongate,pereopod 7 dactylus
 15,Conlukiidae,,Conlukiidae,T20a,equals,pereopod 7
-15,Conlukiidae,,Conlukiidae,T20g,short,pereopod 7 dactyl
+15,Conlukiidae,,Conlukiidae,T20g,short,pereopod 7 dactylus
 16,17,,,T07,palp present,mandible
 16,18,,,T07,palp absent,mandible
 17,Pagetinidae,,Pagetinidae,T12a,subchelate,gnathopod 1

@@ -560,6 +560,10 @@ def render_segment_panel(merged, selected, seg):
     shown = 0
     for row in traits_here.itertuples(index=False):
         tid = row.trait_id
+        if tid in selected:
+            shown += 1
+            continue
+
         others = {k: v for k, v in selected.items() if k != tid}
         base = filter_species(merged, others)
         sub = merged[(merged["trait_id"] == tid) & merged["species_id"].isin(base)]
