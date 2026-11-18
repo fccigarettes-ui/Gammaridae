@@ -87,6 +87,7 @@ TEXT = {
         "related_to_viewed": "เกี่ยวข้องกับที่คุณดู",
         "same_genus_family_viewed": "สกุลหรือวงศ์เดียวกับชนิดที่เปิดดู",
         "explore_all": "สำรวจทั้งหมด",
+        "show_more": "แสดงเพิ่มเติม ({n} ชนิด)",
         "filter_family": "กรองตาม Family",
         "all_families": "ทุก Family",
         "disclaimer": "⚠️ Amphidex เป็นเครื่องมือช่วยระบุเบื้องต้น ควรตรวจสอบผลกับเอกสารต้นฉบับ (ลิงก์ Reference/PDF/Plazi ในหน้าแต่ละชนิด) ก่อนนำไปใช้ในงานวิจัย",
@@ -146,6 +147,7 @@ TEXT = {
         "related_to_viewed": "Related to what you viewed",
         "same_genus_family_viewed": "Same genus or family as the species you opened",
         "explore_all": "Explore all",
+        "show_more": "Show more ({n} species)",
         "filter_family": "Filter by Family",
         "all_families": "All families",
         "disclaimer": "⚠️ Amphidex is a preliminary identification aid. Please verify results against the original literature (Reference/PDF/Plazi links on each species page) before using them in research.",
@@ -687,7 +689,22 @@ def render_home(sp_df, info_df):
                                    for s in explore["species_id"]])
     explore = explore.sort_values(["_img", "Family", "Genus", "scientific_name"],
                                   ascending=[False, True, True, True]).drop(columns="_img")
-    render_grid(explore, info_df, "explore")
+    PAGE_SIZE = 12
+    if "explore_shown" not in st.session_state:
+        st.session_state.explore_shown = PAGE_SIZE
+    if sel != st.session_state.get("_prev_home_fam"):
+        st.session_state.explore_shown = PAGE_SIZE   # เปลี่ยน filter family → รีเซ็ต
+        st.session_state._prev_home_fam = sel
+
+    shown_n = min(st.session_state.explore_shown, len(explore))
+    render_grid(explore.head(shown_n), info_df, "explore")
+
+    if shown_n < len(explore):
+        remaining = len(explore) - shown_n
+        if st.button(t("show_more", n=min(PAGE_SIZE, remaining)), key="explore_more",
+                     use_container_width=True):
+            st.session_state.explore_shown += PAGE_SIZE
+            st.rerun()
 
     st.caption(t("disclaimer"))
 
