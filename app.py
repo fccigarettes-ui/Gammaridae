@@ -53,9 +53,9 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-CONTACT_WHATSAPP_TEXT = "+66 XX XXX XXXX"  
-CONTACT_WHATSAPP_URL = ""                   
-CONTACT_PHONE_TH = "061-301-9515"           
+CONTACT_WHATSAPP_TEXT = "+66 61 301 9515"  
+CONTACT_WHATSAPP_URL = ""                      
+CONTACT_EMAIL = "tphibunnonnithi@gmail.com"      
 AUTHOR_NAME = {"th": "ธชาพัฒน์", "en": "T. Phibunnonnithi"}  
 LOGO_PX = 120                                
 
@@ -612,16 +612,13 @@ def render_footer():
     if CONTACT_WHATSAPP_URL:
         wa_html = (f'<a href="{CONTACT_WHATSAPP_URL}" target="_blank" '
                    f'style="text-decoration:none;color:inherit;">{wa_html}</a>')
-    digits = re.sub(r"\D", "", CONTACT_PHONE_TH)
-    phone_html = f"📞 {CONTACT_PHONE_TH}"
-    if len(digits) >= 8:
-        phone_html = f'<a href="tel:{digits}" style="text-decoration:none;color:inherit;">{phone_html}</a>'
+    email_html = f'<a href="mailto:{CONTACT_EMAIL}" style="text-decoration:none;color:inherit;">✉️ {CONTACT_EMAIL}</a>'
     lang = st.session_state.get("lang", "th")
     st.markdown(f"""
 <div style="text-align:center;margin:0.5rem 0 1.5rem 0;line-height:2;">
 <div style="font-weight:700;font-size:1.15rem;">{t("contact_us")}</div>
 <div>{wa_html}</div>
-<div>{t("phone_th")}: {phone_html}</div>
+<div>{email_html}</div>
 <div style="font-size:0.8rem;opacity:0.65;">{t("developed_by", name=AUTHOR_NAME[lang])}</div>
 <div style="font-size:0.75rem;opacity:0.5;margin-top:4px;">Copyright © 2026 T. Phibunnonnithi. All rights reserved.</div>
 </div>
